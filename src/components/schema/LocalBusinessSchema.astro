@@ -1,0 +1,57 @@
+---
+interface Props {
+  page?: string;
+}
+
+const { page } = Astro.props;
+const siteUrl = 'https://thegreyhavens.co.uk';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "@id": `${siteUrl}/#organization`,
+  "name": "Grey Havens",
+  "alternateName": "Grey Havens Electrical & Smart Home Systems",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/logo.png`,
+  "image": `${siteUrl}/images/og-default.jpg`,
+  "description": "Premium electrical and smart home services across Essex and Suffolk. Consumer units, EV chargers, rewiring, smart home installation, EICR certificates, and more.",
+  "telephone": "01206 000 000",
+  "email": "hello@thegreyhavens.co.uk",
+  "areaServed": [
+    { "@type": "City", "name": "Colchester", "containedInPlace": { "@type": "AdministrativeArea", "name": "Essex" } },
+    { "@type": "City", "name": "Mersea Island", "containedInPlace": { "@type": "AdministrativeArea", "name": "Essex" } },
+    { "@type": "City", "name": "Tiptree", "containedInPlace": { "@type": "AdministrativeArea", "name": "Essex" } },
+    { "@type": "City", "name": "Witham", "containedInPlace": { "@type": "AdministrativeArea", "name": "Essex" } },
+    { "@type": "City", "name": "Maldon", "containedInPlace": { "@type": "AdministrativeArea", "name": "Essex" } },
+    { "@type": "City", "name": "Diss", "containedInPlace": { "@type": "AdministrativeArea", "name": "Suffolk" } },
+  ],
+  "serviceType": [
+    "Electrical Installation",
+    "Consumer Unit Replacement",
+    "EV Charger Installation",
+    "Electrical Fault Finding",
+    "Lighting Installation",
+    "Rewiring",
+    "EICR Certificates",
+    "Smart Home Installation",
+    "Ethernet Wiring",
+    "Home WiFi Systems",
+    "CCTV Installation",
+    "Home Cinema Wiring",
+  ],
+  "priceRange": "££",
+  "paymentAccepted": ["Cash", "Bank Transfer"],
+  "knowsAbout": [
+    "Electrical Installation",
+    "Smart Home Systems",
+    "EV Charging Infrastructure",
+    "Network Cabling",
+    "BS 7671 Wiring Regulations",
+    "Electrical Inspection and Testing",
+  ],
+  "sameAs": [],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

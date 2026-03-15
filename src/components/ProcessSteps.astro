@@ -1,0 +1,100 @@
+---
+const steps = [
+  { number: '01', title: 'Get in Touch', desc: 'Tell us about your project via phone, email, or our contact form. We\'ll discuss your requirements and answer any initial questions.' },
+  { number: '02', title: 'Survey & Quote', desc: 'We visit your property to assess the work needed and provide a clear, detailed quote with no hidden costs.' },
+  { number: '03', title: 'Scheduled Work', desc: 'We carry out the work at a time that suits you, keeping you informed throughout and minimising disruption.' },
+  { number: '04', title: 'Tested & Certified', desc: 'Every installation is fully tested and certified. We walk you through everything before we leave.' },
+];
+---
+
+<section class="process section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__subtitle">How We Work</span>
+      <h2>A Clear, Considered Process</h2>
+      <p class="text-silver">From first contact to completion, we make the process straightforward and professional.</p>
+    </div>
+    <div class="process__grid">
+      {steps.map((step, i) => (
+        <div class="process__step">
+          <span class="process__number">{step.number}</span>
+          <h3 class="process__title">{step.title}</h3>
+          <p class="process__desc">{step.desc}</p>
+          {i < steps.length - 1 && <div class="process__connector"></div>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+
+  .process__step {
+    text-align: center;
+    position: relative;
+    padding: 1.5rem 1rem;
+  }
+
+  .process__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .process__title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .process__desc {
+    font-size: 0.875rem;
+    color: var(--color-silver);
+    opacity: 0.75;
+    line-height: 1.7;
+  }
+
+  .process__connector {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    .process__connector {
+      display: block;
+      position: absolute;
+      top: 1.5rem;
+      right: -1rem;
+      width: 2rem;
+      height: 2px;
+      background: linear-gradient(to right, var(--color-gold), transparent);
+      transform: translateY(27px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .process__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process__grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

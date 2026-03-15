@@ -1,0 +1,21 @@
+---
+interface Props {
+  items: { name: string; url: string }[];
+}
+
+const { items } = Astro.props;
+const siteUrl = 'https://thegreyhavens.co.uk';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": `${siteUrl}${item.url}`,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

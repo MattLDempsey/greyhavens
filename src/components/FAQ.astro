@@ -1,0 +1,87 @@
+---
+interface Props {
+  items: { question: string; answer: string }[];
+  title?: string;
+}
+
+const { items, title = 'Frequently Asked Questions' } = Astro.props;
+---
+
+<section class="faq-section">
+  <div class="container container--narrow">
+    <h2 class="faq-section__title">{title}</h2>
+    <hr class="gold-line" />
+    <div class="faq-list">
+      {items.map((item, i) => (
+        <details class="faq-item" name="faq">
+          <summary class="faq-item__question">
+            <span>{item.question}</span>
+            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-item__answer">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: var(--section-padding);
+  }
+
+  .faq-section__title {
+    text-align: center;
+  }
+
+  .faq-list {
+    margin-top: 2.5rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    list-style: none;
+    transition: color 0.3s;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question:hover {
+    color: var(--color-gold);
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer {
+    padding: 0 0 1.5rem 0;
+    color: var(--color-silver);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+</style>

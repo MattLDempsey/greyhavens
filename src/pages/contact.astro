@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title="Contact Grey Havens | Request a Quote"
+  description="Get in touch with Grey Havens for a free, no-obligation quote. Electrical services, smart home installation, and more across Essex and Suffolk."
+>
+  <Hero
+    compact
+    subtitle="Get in Touch"
+    title="Tell Us About Your Project"
+    description="Whether you need a straightforward electrical job or a complete smart home installation, we'd love to hear from you."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="contact-form-wrapper">
+          <h2>Request a Quote</h2>
+          <p class="contact-intro">Fill in the form below and we'll get back to you within one working day. All quotes are free and come with no obligation.</p>
+          <hr class="gold-line gold-line--left" />
+          <ContactForm />
+        </div>
+
+        <!-- Contact Info Sidebar -->
+        <aside class="contact-sidebar">
+          <div class="contact-info-card card">
+            <h3>Contact Details</h3>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Phone</span>
+              <a href="tel:01206000000" class="contact-detail__value">01206 000 000</a>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Email</span>
+              <a href="mailto:hello@thegreyhavens.co.uk" class="contact-detail__value">hello@thegreyhavens.co.uk</a>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Service Area</span>
+              <span class="contact-detail__value">Essex & Suffolk</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card card">
+            <h3>What We Work On</h3>
+            <ul class="contact-services">
+              <li>Consumer unit replacements</li>
+              <li>EV charger installations</li>
+              <li>Full & partial rewires</li>
+              <li>EICR certificates & inspections</li>
+              <li>Smart home systems</li>
+              <li>Ethernet & WiFi infrastructure</li>
+              <li>CCTV & security</li>
+              <li>Lighting installations</li>
+              <li>Fault finding & repairs</li>
+            </ul>
+          </div>
+
+          <div class="contact-info-card card">
+            <h3>Areas We Cover</h3>
+            <div class="contact-areas">
+              <span>Colchester</span>
+              <span>Mersea Island</span>
+              <span>Tiptree</span>
+              <span>Witham</span>
+              <span>Maldon</span>
+              <span>Diss</span>
+            </div>
+            <p class="contact-areas-note">Plus surrounding villages and communities across the Essex and Suffolk corridor.</p>
+          </div>
+
+          <div class="contact-info-card card card--highlight">
+            <h3>Prefer to Call?</h3>
+            <p>We're happy to discuss your project over the phone. Give us a call and we'll talk through your requirements.</p>
+            <a href="tel:01206000000" class="btn btn--primary" style="margin-top: 1rem; width: 100%; text-align: center;">Call 01206 000 000</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-size: 1.05rem;
+    color: var(--color-silver);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .contact-info-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-gold);
+  }
+
+  .contact-detail {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.2);
+  }
+
+  .contact-detail:last-of-type {
+    border-bottom: none;
+  }
+
+  .contact-detail__label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-silver);
+    opacity: 0.5;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-detail__value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  a.contact-detail__value:hover {
+    color: var(--color-gold);
+  }
+
+  .contact-services {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .contact-services li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--color-silver);
+    opacity: 0.8;
+  }
+
+  .contact-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 1.5px;
+    background-color: var(--color-gold);
+  }
+
+  .contact-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-areas span {
+    padding: 0.375rem 0.875rem;
+    background-color: var(--color-charcoal);
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    color: var(--color-silver-light);
+    border: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .contact-areas-note {
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    opacity: 0.5;
+    margin: 0;
+  }
+
+  .card--highlight {
+    border-color: rgba(198, 168, 106, 0.3);
+    background: linear-gradient(135deg, var(--color-charcoal-light), rgba(198, 168, 106, 0.05));
+  }
+
+  .card--highlight p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .contact-sidebar {
+      position: static;
+    }
+  }
+</style>

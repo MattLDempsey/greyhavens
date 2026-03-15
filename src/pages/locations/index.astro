@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import LocationCard from '../../components/LocationCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import { locations } from '../../data/locations';
+---
+
+<BaseLayout
+  title="Areas We Cover | Grey Havens Electrical & Smart Home"
+  description="Grey Havens provides electrical and smart home services across Essex and Suffolk. Covering Colchester, Mersea Island, Tiptree, Witham, Maldon, Diss, and surrounding areas."
+>
+  <Hero
+    compact
+    subtitle="Service Areas"
+    title="Areas We Cover"
+    description="We provide premium electrical and smart home services across a corridor of Essex and Suffolk, covering these key areas and their surrounding communities."
+    primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        {locations.map(location => (
+          <LocationCard
+            name={location.name}
+            slug={location.slug}
+            county={location.county}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container container--narrow text-center">
+      <h2>Don't See Your Area?</h2>
+      <hr class="gold-line" />
+      <p class="text-silver">We may still be able to help. Our service area extends beyond the locations listed above into surrounding villages and communities. Get in touch and we'll let you know if we can cover your area.</p>
+      <a href="/contact/" class="btn btn--primary mt-2">Get in Touch</a>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>

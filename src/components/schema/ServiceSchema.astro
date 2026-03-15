@@ -1,0 +1,36 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  category: string;
+}
+
+const { name, description, url, category } = Astro.props;
+const siteUrl = 'https://thegreyhavens.co.uk';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": name,
+  "description": description,
+  "url": `${siteUrl}${url}`,
+  "category": category,
+  "provider": {
+    "@type": "Electrician",
+    "@id": `${siteUrl}/#organization`,
+    "name": "Grey Havens",
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Colchester" },
+    { "@type": "City", "name": "Mersea Island" },
+    { "@type": "City", "name": "Tiptree" },
+    { "@type": "City", "name": "Witham" },
+    { "@type": "City", "name": "Maldon" },
+    { "@type": "City", "name": "Diss" },
+  ],
+  "serviceOutput": "Electrical Installation",
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

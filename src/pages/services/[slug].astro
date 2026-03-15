@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import { services, getRelatedServices } from '../../data/services';
+import { locations } from '../../data/locations';
+
+export function getStaticPaths() {
+  return services.map(service => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const related = getRelatedServices(service.relatedServices);
+---
+
+<BaseLayout title={service.seoTitle} description={service.seoDescription}>
+  <ServiceSchema
+    slot="schema"
+    name={service.name}
+    description={service.longDescription}
+    url={`/services/${service.slug}/`}
+    category={service.category === 'electrical' ? 'Electrical Services' : service.category === 'compliance' ? 'Property & Compliance' : 'Smart Home & Technology'}
+  />
+  <FAQSchema slot="schema" items={service.faqs} />
+  <BreadcrumbSchema
+    slot="schema"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/services/' },
+      { name: service.name, url: `/services/${service.slug}/` },
+    ]}
+  />
+  <Hero
+    compact
+    subtitle={service.category === 'electrical' ? 'Electrical Services' : service.category === 'compliance' ? 'Property & Compliance' : 'Smart Home & Technology'}
+    title={service.name}
+    description={service.shortDescription}
+    primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
+    secondaryCta={{ text: 'Call 01206 000 000', href: 'tel:01206000000' }}
+  />
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-main">
+          <!-- Intro -->
+          <div class="service-intro">
+            <p class="service-intro__text">{service.longDescription}</p>
+          </div>
+
+          <!-- What's Included -->
+          <div class="service-block">
+            <h2>What's Included</h2>
+            <hr class="gold-line gold-line--left" />
+            <ul class="service-checklist">
+              {service.includes.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Who It's For -->
+          <div class="service-block">
+            <h2>Who This Service Is For</h2>
+            <hr class="gold-line gold-line--left" />
+            <ul class="service-checklist">
+              {service.whoFor.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Why Grey Havens -->
+          <div class="service-block">
+            <h2>Why Choose Grey Havens</h2>
+            <hr class="gold-line gold-line--left" />
+            <ul class="service-checklist service-checklist--gold">
+              {service.whyUs.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Signs You Need This -->
+          <div class="service-block">
+            <h2>Signs You May Need This Service</h2>
+            <hr class="gold-line gold-line--left" />
+            <ul class="service-checklist">
+              {service.signs.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="service-sidebar">
+          <div class="sidebar-card card">
+            <h3>Request a Quote</h3>
+            <p>Get a free, no-obligation quote for {service.name.toLowerCase()}.</p>
+            <a href="/contact/" class="btn btn--primary" style="width: 100%; text-align: center;">Get a Quote</a>
+            <div class="sidebar-card__divider"></div>
+            <div class="sidebar-card__contact">
+              <span class="sidebar-card__label">Or call us</span>
+              <a href="tel:01206000000" class="sidebar-card__phone">01206 000 000</a>
+            </div>
+          </div>
+
+          <div class="sidebar-card card">
+            <h3>Areas Covered</h3>
+            <div class="sidebar-areas">
+              {locations.map(loc => (
+                <a href={`/locations/${loc.slug}/`} class="sidebar-area-tag">{loc.name}</a>
+              ))}
+            </div>
+          </div>
+
+          {related.length > 0 && (
+            <div class="sidebar-card card">
+              <h3>Related Services</h3>
+              <ul class="sidebar-links">
+                {related.map(r => (
+                  <li><a href={`/services/${r.slug}/`}>{r.name}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  {service.faqs.length > 0 && (
+    <section class="section--dark">
+      <FAQ items={service.faqs} title={`${service.name} — FAQs`} />
+    </section>
+  )}
+
+  <CTABand
+    title={`Need ${service.name}?`}
+    description="Get in touch for a free, no-obligation quote. We cover Colchester, Mersea Island, Tiptree, Witham, Maldon, Diss, and surrounding areas."
+  />
+</BaseLayout>
+
+<style>
+  .service-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .service-intro__text {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--color-silver-light);
+  }
+
+  .service-block {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(75, 80, 87, 0.2);
+  }
+
+  .service-block h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-checklist {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .service-checklist li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: 0.95rem;
+    color: var(--color-silver);
+    line-height: 1.6;
+  }
+
+  .service-checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 10px;
+    height: 2px;
+    background-color: var(--color-steel-light);
+  }
+
+  .service-checklist--gold li::before {
+    background-color: var(--color-gold);
+  }
+
+  /* Sidebar */
+  .service-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-card h3 {
+    font-size: 1rem;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar-card__divider {
+    height: 1px;
+    background-color: rgba(75, 80, 87, 0.3);
+    margin: 1.25rem 0;
+  }
+
+  .sidebar-card__label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-silver);
+    opacity: 0.5;
+    margin-bottom: 0.25rem;
+  }
+
+  .sidebar-card__phone {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .sidebar-card__phone:hover {
+    color: var(--color-gold);
+  }
+
+  .sidebar-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sidebar-area-tag {
+    padding: 0.35rem 0.75rem;
+    background-color: var(--color-charcoal);
+    border: 1px solid rgba(75, 80, 87, 0.3);
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .sidebar-area-tag:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar-links a {
+    font-size: 0.875rem;
+    color: var(--color-silver);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.15);
+    transition: color 0.3s;
+  }
+
+  .sidebar-links a:hover {
+    color: var(--color-gold);
+  }
+
+  @media (max-width: 900px) {
+    .service-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .service-sidebar {
+      position: static;
+    }
+  }
+</style>

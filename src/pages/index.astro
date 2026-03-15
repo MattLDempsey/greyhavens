@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import LocationCard from '../components/LocationCard.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import CTABand from '../components/CTABand.astro';
+import { getServicesByCategory } from '../data/services';
+import { locations } from '../data/locations';
+
+const electricalServices = getServicesByCategory('electrical');
+const smartHomeServices = getServicesByCategory('smart-home');
+---
+
+<BaseLayout
+  title="Grey Havens | Premium Electrical & Smart Home Systems | Essex & Suffolk"
+  description="Premium electrical and smart home services across Essex and Suffolk. Consumer units, EV chargers, rewiring, smart home installation, EICR certificates, and more."
+>
+  <!-- Hero -->
+  <Hero
+    subtitle="Electrical & Smart Home Systems"
+    title="Premium Electrical Work and Smart Home Infrastructure Across Essex & Suffolk"
+    description="Modern electrical services, EV charging, home networking, and smart home systems — delivered with quality workmanship and genuine expertise."
+    primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
+    secondaryCta={{ text: 'View Services', href: '/services/' }}
+  />
+
+  <!-- Trust Strip -->
+  <TrustStrip />
+
+  <!-- Electrical Services -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Core Services</span>
+        <h2>Electrical Services</h2>
+        <p class="text-silver">Essential electrical work for homes and properties — from consumer unit upgrades and rewiring to fault diagnosis and lighting.</p>
+      </div>
+      <div class="grid grid--3">
+        {electricalServices.map(service => (
+          <ServiceCard
+            name={service.name}
+            slug={service.slug}
+            description={service.shortDescription}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Home Section -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Connected Living</span>
+        <h2>Smart Home & Technology</h2>
+        <p class="text-silver">Modern infrastructure for connected homes — EV charging, structured networking, security, entertainment, and whole-home automation.</p>
+      </div>
+      <div class="grid grid--3">
+        {smartHomeServices.map(service => (
+          <ServiceCard
+            name={service.name}
+            slug={service.slug}
+            description={service.shortDescription}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-2">
+        <a href="/services/" class="btn btn--secondary">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Grey Havens -->
+  <section class="section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content">
+          <span class="section__subtitle">Why Grey Havens</span>
+          <h2>Quality Work, Modern Capability, Trusted Service</h2>
+          <hr class="gold-line gold-line--left" />
+          <p>We combine solid electrical expertise with genuine understanding of modern smart home technology. Every installation is carried out to the highest standard, fully tested, and properly certified.</p>
+          <p>Whether it's a consumer unit replacement, a full property rewire, or a complete smart home installation with networking and automation — we approach every project with the same care and attention to detail.</p>
+          <ul class="why-list">
+            <li>Quality materials and premium workmanship</li>
+            <li>Full testing and certification on every job</li>
+            <li>Clear communication with no jargon</li>
+            <li>Genuine smart home and networking expertise</li>
+            <li>Clean, tidy installations with attention to detail</li>
+            <li>Domestic, landlord, and renovation work</li>
+          </ul>
+        </div>
+        <div class="why-image">
+          <div class="why-image__placeholder">
+            <span class="why-image__text">Image Placeholder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas Covered -->
+  <section class="section section--charcoal-light">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Service Area</span>
+        <h2>Areas We Cover</h2>
+        <p class="text-silver">We provide electrical and smart home services across Essex and Suffolk, covering these key areas and surrounding villages.</p>
+      </div>
+      <div class="grid grid--3">
+        {locations.map(location => (
+          <LocationCard
+            name={location.name}
+            slug={location.slug}
+            county={location.county}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <ProcessSteps />
+
+  <!-- CTA Band -->
+  <CTABand
+    title="Tell Us About Your Project"
+    description="Whether you need a straightforward electrical job or a complete smart home installation, we'd love to hear from you. Free, no-obligation quotes for all planned work."
+  />
+</BaseLayout>
+
+<style>
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .why-list {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .why-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-silver);
+  }
+
+  .why-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .why-image__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(135deg, var(--color-charcoal-light), var(--color-steel));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .why-image__text {
+    font-size: 0.85rem;
+    color: var(--color-silver);
+    opacity: 0.4;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 768px) {
+    .why-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .why-image {
+      order: -1;
+    }
+    .why-image__placeholder {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

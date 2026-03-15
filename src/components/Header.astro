@@ -1,0 +1,261 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Locations', href: '/locations/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Contact', href: '/contact/' },
+];
+---
+
+<header class="site-header" id="site-header">
+  <div class="header__inner">
+    <a href="/" class="header__logo" aria-label="Grey Havens — Home">
+      <span class="logo__mark">GH</span>
+      <span class="logo__text">
+        <span class="logo__name">Grey Havens</span>
+        <span class="logo__tagline">Electrical & Smart Home</span>
+      </span>
+    </a>
+
+    <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['nav__link', { 'nav__link--active': currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="/contact/" class="btn btn--primary header__cta">Request a Quote</a>
+
+    <button class="header__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="toggle__bar"></span>
+      <span class="toggle__bar"></span>
+      <span class="toggle__bar"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: rgba(43, 46, 52, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    transition: background-color 0.3s ease;
+  }
+
+  .header__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  .logo__mark {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .logo__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .logo__name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+  }
+
+  .logo__tagline {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-silver);
+    opacity: 0.7;
+  }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav__link {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-silver);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav__link:hover,
+  .nav__link--active {
+    color: var(--color-gold);
+  }
+
+  .nav__link:hover::after,
+  .nav__link--active::after {
+    width: 100%;
+  }
+
+  .header__cta {
+    font-size: 0.85rem;
+    padding: 0.625rem 1.5rem;
+  }
+
+  .header__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 60;
+  }
+
+  .toggle__bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-silver);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .header__cta { display: none; }
+    .header__toggle { display: flex; }
+
+    .header__nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: var(--color-charcoal);
+      border-left: 1px solid rgba(75, 80, 87, 0.3);
+      padding: 6rem 2rem 2rem;
+      transition: right 0.3s ease;
+      z-index: 55;
+    }
+
+    .header__nav.is-open {
+      right: 0;
+    }
+
+    .nav__list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .nav__link {
+      display: block;
+      padding: 1rem 0;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(75, 80, 87, 0.2);
+      width: 100%;
+    }
+
+    .header__toggle[aria-expanded="true"] .toggle__bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .header__toggle[aria-expanded="true"] .toggle__bar:nth-child(2) {
+      opacity: 0;
+    }
+    .header__toggle[aria-expanded="true"] .toggle__bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('main-nav');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    nav?.classList.toggle('is-open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  // Close on link click (mobile)
+  nav?.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll header background
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const scrollY = window.scrollY;
+    if (scrollY > 50) {
+      header.style.backgroundColor = 'rgba(26, 28, 32, 0.98)';
+    } else {
+      header.style.backgroundColor = 'rgba(43, 46, 52, 0.95)';
+    }
+    lastScroll = scrollY;
+  });
+</script>

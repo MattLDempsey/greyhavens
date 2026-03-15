@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import { locations } from '../data/locations';
+---
+
+<BaseLayout
+  title="About Grey Havens | Electrical & Smart Home Systems"
+  description="Learn about Grey Havens — premium electrical and smart home services across Essex and Suffolk. Quality workmanship, modern capability, and trusted local service."
+>
+  <Hero
+    compact
+    subtitle="About Us"
+    title="Modern Electrical Expertise, Built on Quality"
+    description="Grey Havens delivers premium electrical and smart home services with a focus on quality, capability, and genuine customer care."
+  />
+
+  <!-- Brand Story -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section__subtitle">Our Story</span>
+          <h2>A Different Kind of Electrical Business</h2>
+          <hr class="gold-line gold-line--left" />
+          <p>Grey Havens was founded with a clear purpose: to deliver electrical and smart home services to a standard that most local operators simply don't reach. Not through shortcuts or volume — but through careful, quality-focused work that homeowners can trust and rely on.</p>
+          <p>We recognised that the gap between a basic electrician and a genuine smart home specialist was growing. Homeowners want modern capability — EV charging, structured networking, automation — but they also need someone they can trust with the fundamentals. Consumer units, rewiring, fault finding, and compliance work still need to be done properly.</p>
+          <p>Grey Havens bridges that gap. We bring the same level of care to a consumer unit replacement as we do to a full smart home installation. Every job is completed to the highest standard, fully tested, and properly certified.</p>
+        </div>
+        <div class="about-image">
+          <div class="about-image__placeholder">
+            <span class="about-image__text">Image Placeholder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Stand For -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">What We Stand For</span>
+        <h2>Our Approach</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card card">
+          <h3>Quality Over Quantity</h3>
+          <p>We don't chase volume. Every project gets the time and attention it deserves. We use quality materials, follow best practices, and never cut corners — because the work we do needs to last.</p>
+        </div>
+        <div class="value-card card">
+          <h3>Genuine Expertise</h3>
+          <p>We don't just install devices — we understand the systems behind them. From electrical infrastructure to network architecture, our knowledge runs deep enough to design solutions that actually work reliably.</p>
+        </div>
+        <div class="value-card card">
+          <h3>Clear Communication</h3>
+          <p>We explain what we're doing and why, in plain language. No jargon, no unnecessary complexity, no pressure. We want you to understand the work and feel confident in the decisions being made.</p>
+        </div>
+        <div class="value-card card">
+          <h3>Considered Service</h3>
+          <p>We treat your home with respect. Clean workmanship, tidy installations, and minimal disruption aren't extras — they're the baseline. We leave your property the way we'd want ours left.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Philosophy -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="section__header">
+        <span class="section__subtitle">Service Philosophy</span>
+        <h2>Who We Work With</h2>
+      </div>
+      <div class="philosophy-content">
+        <p>We work primarily with homeowners, landlords, and renovation projects across Essex and Suffolk. Our clients are people who value quality and want their electrical and smart home work done properly — not just cheaply.</p>
+        <p>Whether you're upgrading a consumer unit in a terraced house, installing EV charging at a rural property, or wiring a whole-home smart system in a new build, we bring the same standard of care and professionalism.</p>
+        <p>We're particularly well suited for:</p>
+        <ul class="philosophy-list">
+          <li>Homeowners investing in their property</li>
+          <li>Renovation and extension projects needing quality electrical work</li>
+          <li>Landlords who want compliance done properly, not just ticked off</li>
+          <li>Tech-forward customers wanting smart home infrastructure that actually works</li>
+          <li>Anyone who's been let down by substandard electrical work before</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area -->
+  <section class="section section--charcoal-light">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Where We Work</span>
+        <h2>Our Service Area</h2>
+        <p class="text-silver">We cover a corridor across Essex and Suffolk, serving these key areas and their surrounding villages and communities.</p>
+      </div>
+      <div class="area-grid">
+        {locations.map(loc => (
+          <a href={`/locations/${loc.slug}/`} class="area-tag">
+            {loc.name}
+            <span class="area-tag__county">{loc.county}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    title="Let's Talk About Your Project"
+    description="Get in touch for a free, no-obligation conversation about your electrical or smart home requirements."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="View Our Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-image__placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: linear-gradient(135deg, var(--color-charcoal-light), var(--color-steel));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .about-image__text {
+    font-size: 0.85rem;
+    color: var(--color-silver);
+    opacity: 0.4;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .value-card h3 {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-card p {
+    font-size: 0.925rem;
+    opacity: 0.8;
+  }
+
+  .philosophy-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .philosophy-list {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .philosophy-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-silver);
+  }
+
+  .philosophy-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .area-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .area-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.75rem;
+    background-color: var(--color-charcoal);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .area-tag:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  .area-tag__county {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-silver);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .about-image { order: -1; }
+    .about-image__placeholder { aspect-ratio: 16 / 9; }
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>

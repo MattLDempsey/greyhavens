@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import { locations } from '../../data/locations';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return locations.map(location => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+
+const coreServices = services.filter(s => s.category === 'electrical' || s.category === 'compliance');
+const smartServices = services.filter(s => s.category === 'smart-home');
+const otherLocations = locations.filter(l => l.slug !== location.slug);
+---
+
+<BaseLayout title={location.seoTitle} description={location.seoDescription}>
+  <FAQSchema slot="schema" items={location.localFaqs} />
+  <BreadcrumbSchema
+    slot="schema"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: 'Locations', url: '/locations/' },
+      { name: location.name, url: `/locations/${location.slug}/` },
+    ]}
+  />
+  <Hero
+    compact
+    subtitle={`Serving ${location.county}`}
+    title={`Electrician in ${location.name}`}
+    description={`Premium electrical and smart home services in ${location.name} and surrounding areas. Quality workmanship, fully certified, and genuinely local.`}
+    primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
+    secondaryCta={{ text: 'Call 01206 000 000', href: 'tel:01206000000' }}
+  />
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="location-intro">
+        <div class="location-intro__content">
+          <h2>Electrical & Smart Home Services in {location.name}</h2>
+          <hr class="gold-line gold-line--left" />
+          <p>{location.intro}</p>
+          <p>{location.localDescription}</p>
+        </div>
+        <div class="location-intro__image">
+          <div class="location-placeholder">
+            <span>{location.name}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Available -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Available in {location.name}</span>
+        <h2>Our Services</h2>
+        <p class="text-silver">We offer the full range of electrical and smart home services in {location.name} and surrounding areas.</p>
+      </div>
+
+      <h3 class="services-subhead">Electrical & Compliance</h3>
+      <div class="grid grid--3 mb-2">
+        {coreServices.map(s => (
+          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} />
+        ))}
+      </div>
+
+      <h3 class="services-subhead mt-2">Smart Home & Technology</h3>
+      <div class="grid grid--3">
+        {smartServices.map(s => (
+          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Customers Choose Us -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="section__header">
+        <span class="section__subtitle">{location.name}</span>
+        <h2>Why Customers in {location.name} Choose Grey Havens</h2>
+      </div>
+      <div class="why-location-grid">
+        <div class="why-location-item">
+          <h4>Genuinely Local</h4>
+          <p>{location.name} is within our core service area. We're not travelling from miles away — we know the area and work here regularly.</p>
+        </div>
+        <div class="why-location-item">
+          <h4>Premium Standard</h4>
+          <p>We deliver the same high standard of work to every customer, whether it's a straightforward socket replacement or a complete smart home installation.</p>
+        </div>
+        <div class="why-location-item">
+          <h4>Fully Certified</h4>
+          <p>Every piece of work is fully tested and certified. When compliance matters — and it always does — you can trust the documentation we provide.</p>
+        </div>
+        <div class="why-location-item">
+          <h4>Modern Capability</h4>
+          <p>Beyond traditional electrical work, we bring genuine expertise in smart home systems, networking, and modern infrastructure that most local electricians can't offer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Locations -->
+  <section class="section section--charcoal-light">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Nearby Areas</span>
+        <h2>We Also Cover</h2>
+      </div>
+      <div class="other-locations">
+        {otherLocations.map(loc => (
+          <a href={`/locations/${loc.slug}/`} class="other-location-tag">
+            {loc.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  {location.localFaqs.length > 0 && (
+    <section class="section--dark">
+      <FAQ items={location.localFaqs} title={`Electrician in ${location.name} — FAQs`} />
+    </section>
+  )}
+
+  <CTABand
+    title={`Need an Electrician in ${location.name}?`}
+    description={`Get in touch for a free, no-obligation quote. We cover ${location.name} and all surrounding areas.`}
+  />
+</BaseLayout>
+
+<style>
+  .location-intro {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .location-intro__content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .location-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--color-charcoal-light), var(--color-steel));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(75, 80, 87, 0.3);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-silver);
+    opacity: 0.3;
+  }
+
+  .services-subhead {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .why-location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .why-location-item {
+    padding: 1.5rem;
+    border-left: 2px solid var(--color-gold);
+  }
+
+  .why-location-item h4 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .why-location-item p {
+    font-size: 0.9rem;
+    color: var(--color-silver);
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .other-locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .other-location-tag {
+    padding: 0.875rem 1.75rem;
+    background-color: var(--color-charcoal);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .other-location-tag:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  @media (max-width: 768px) {
+    .location-intro {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .location-intro__image { order: -1; }
+    .location-placeholder { aspect-ratio: 16 / 9; }
+    .why-location-grid { grid-template-columns: 1fr; }
+  }
+</style>

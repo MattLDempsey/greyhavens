@@ -1,0 +1,142 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<form class:list={['contact-form', { 'contact-form--compact': compact }]} action="#" method="POST" id="contact-form">
+  <div class="form__row form__row--2">
+    <div class="form__group">
+      <label for="name" class="form__label">Name <span class="form__required">*</span></label>
+      <input type="text" id="name" name="name" required class="form__input" placeholder="Your full name" />
+    </div>
+    <div class="form__group">
+      <label for="email" class="form__label">Email <span class="form__required">*</span></label>
+      <input type="email" id="email" name="email" required class="form__input" placeholder="your@email.co.uk" />
+    </div>
+  </div>
+  <div class="form__row form__row--2">
+    <div class="form__group">
+      <label for="phone" class="form__label">Phone</label>
+      <input type="tel" id="phone" name="phone" class="form__input" placeholder="Your phone number" />
+    </div>
+    <div class="form__group">
+      <label for="postcode" class="form__label">Postcode</label>
+      <input type="text" id="postcode" name="postcode" class="form__input" placeholder="e.g. CO1 1AB" />
+    </div>
+  </div>
+  <div class="form__group">
+    <label for="service" class="form__label">Service Needed</label>
+    <select id="service" name="service" class="form__input form__select">
+      <option value="">Select a service...</option>
+      <option value="consumer-unit">Consumer Unit Replacement</option>
+      <option value="ev-charger">EV Charger Installation</option>
+      <option value="fault-finding">Fault Finding</option>
+      <option value="lighting">Lighting Installation</option>
+      <option value="rewire">Rewire</option>
+      <option value="eicr">EICR Certificate</option>
+      <option value="smart-home">Smart Home Installation</option>
+      <option value="ethernet">Ethernet Wiring</option>
+      <option value="wifi">Home WiFi Systems</option>
+      <option value="cctv">CCTV Installation</option>
+      <option value="home-cinema">Home Cinema Wiring</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="form__group">
+    <label for="message" class="form__label">Tell Us About Your Project <span class="form__required">*</span></label>
+    <textarea id="message" name="message" required class="form__input form__textarea" rows="5" placeholder="Describe the work you need — property type, any specific requirements, preferred timescales..."></textarea>
+  </div>
+  <button type="submit" class="btn btn--primary btn--large form__submit">Request a Quote</button>
+  <p class="form__note">We aim to respond within one working day.</p>
+</form>
+
+<style>
+  .contact-form {
+    max-width: 640px;
+  }
+
+  .form__row {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .form__row--2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form__label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-silver-light);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .form__required {
+    color: var(--color-gold);
+  }
+
+  .form__input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-white);
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.5);
+    border-radius: var(--radius);
+    transition: border-color 0.3s ease;
+    outline: none;
+  }
+
+  .form__input::placeholder {
+    color: var(--color-silver);
+    opacity: 0.4;
+  }
+
+  .form__input:focus {
+    border-color: var(--color-gold);
+  }
+
+  .form__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9CDD2' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+  }
+
+  .form__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form__submit {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .form__note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    opacity: 0.5;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .form__row--2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

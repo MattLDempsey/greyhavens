@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABand from '../../components/CTABand.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import { comboPages } from '../../data/combo-pages';
+import { getServiceBySlug } from '../../data/services';
+import { locations } from '../../data/locations';
+
+export function getStaticPaths() {
+  return comboPages.map(page => ({
+    params: { location: page.locationSlug, service: page.serviceSlug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const fullService = getServiceBySlug(page.serviceSlug);
+const otherLocations = locations.filter(l => l.slug !== page.locationSlug);
+const relatedComboPages = comboPages.filter(
+  p => p.locationSlug === page.locationSlug && p.serviceSlug !== page.serviceSlug
+);
+---
+
+<BaseLayout title={page.seoTitle} description={page.seoDescription}>
+  <ServiceSchema
+    slot="schema"
+    name={`${page.serviceName} in ${page.locationName}`}
+    description={page.seoDescription}
+    url={`/${page.locationSlug}/${page.serviceSlug}/`}
+    category={fullService?.category === 'electrical' ? 'Electrical Services' : fullService?.category === 'compliance' ? 'Property & Compliance' : 'Smart Home & Technology'}
+  />
+  <FAQSchema slot="schema" items={page.faqs} />
+  <BreadcrumbSchema
+    slot="schema"
+    items={[
+      { name: 'Home', url: '/' },
+      { name: page.locationName, url: `/locations/${page.locationSlug}/` },
+      { name: page.serviceName, url: `/${page.locationSlug}/${page.serviceSlug}/` },
+    ]}
+  />
+
+  <Hero
+    compact
+    subtitle={`${page.serviceName} — ${page.locationName}`}
+    title={page.headline}
+    description={page.intro.slice(0, 160) + '...'}
+    primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
+    secondaryCta={{ text: 'Call 01206 000 000', href: 'tel:01206000000' }}
+  />
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+      <div class="combo-layout">
+        <div class="combo-main">
+          <!-- Intro -->
+          <div class="combo-intro">
+            <p>{page.intro}</p>
+          </div>
+
+          <!-- Local Angle -->
+          <div class="combo-block">
+            <h2>{page.serviceName} for {page.locationName} Properties</h2>
+            <hr class="gold-line gold-line--left" />
+            <p>{page.localAngle}</p>
+          </div>
+
+          <!-- Why Choose Us Locally -->
+          <div class="combo-block">
+            <h2>Why Choose Grey Havens in {page.locationName}</h2>
+            <hr class="gold-line gold-line--left" />
+            <ul class="combo-checklist">
+              {page.whyLocal.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Full Service Details -->
+          {fullService && (
+            <div class="combo-block">
+              <h2>What's Included</h2>
+              <hr class="gold-line gold-line--left" />
+              <ul class="combo-checklist">
+                {fullService.includes.map((item: string) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {fullService && (
+            <div class="combo-block">
+              <h2>Signs You May Need This Service</h2>
+              <hr class="gold-line gold-line--left" />
+              <ul class="combo-checklist">
+                {fullService.signs.map((item: string) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="combo-sidebar">
+          <div class="sidebar-card card">
+            <h3>Get a Quote in {page.locationName}</h3>
+            <p>Free, no-obligation quote for {page.serviceName.toLowerCase()} in {page.locationName}.</p>
+            <a href="/contact/" class="btn btn--primary" style="width: 100%; text-align: center;">Request a Quote</a>
+            <div class="sidebar-card__divider"></div>
+            <div class="sidebar-card__contact">
+              <span class="sidebar-card__label">Or call us</span>
+              <a href="tel:01206000000" class="sidebar-card__phone">01206 000 000</a>
+            </div>
+          </div>
+
+          {relatedComboPages.length > 0 && (
+            <div class="sidebar-card card">
+              <h3>More Services in {page.locationName}</h3>
+              <ul class="sidebar-links">
+                {relatedComboPages.map(p => (
+                  <li><a href={`/${p.locationSlug}/${p.serviceSlug}/`}>{p.serviceName}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {fullService && (
+            <div class="sidebar-card card">
+              <h3>Full Service Details</h3>
+              <p>View the complete {page.serviceName.toLowerCase()} service page for detailed information.</p>
+              <a href={`/services/${page.serviceSlug}/`} class="sidebar-link-arrow">
+                {page.serviceName}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          )}
+
+          <div class="sidebar-card card">
+            <h3>Other Areas</h3>
+            <div class="sidebar-areas">
+              {otherLocations.map(loc => (
+                <a href={`/locations/${loc.slug}/`} class="sidebar-area-tag">{loc.name}</a>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  {page.faqs.length > 0 && (
+    <section class="section--dark">
+      <FAQ items={page.faqs} title={`${page.serviceName} in ${page.locationName} — FAQs`} />
+    </section>
+  )}
+
+  <CTABand
+    title={`Need ${page.serviceName} in ${page.locationName}?`}
+    description={`Get in touch for a free, no-obligation quote. We cover ${page.locationName} and all surrounding areas.`}
+  />
+</BaseLayout>
+
+<style>
+  .combo-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .combo-intro p {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--color-silver-light);
+  }
+
+  .combo-block {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(75, 80, 87, 0.2);
+  }
+
+  .combo-block h2 {
+    font-size: 1.5rem;
+  }
+
+  .combo-block p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-silver);
+  }
+
+  .combo-checklist {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .combo-checklist li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: 0.95rem;
+    color: var(--color-silver);
+    line-height: 1.6;
+  }
+
+  .combo-checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 10px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  /* Sidebar */
+  .combo-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-card h3 {
+    font-size: 1rem;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar-card__divider {
+    height: 1px;
+    background-color: rgba(75, 80, 87, 0.3);
+    margin: 1.25rem 0;
+  }
+
+  .sidebar-card__label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-silver);
+    opacity: 0.5;
+    margin-bottom: 0.25rem;
+  }
+
+  .sidebar-card__phone {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .sidebar-card__phone:hover {
+    color: var(--color-gold);
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar-links a {
+    font-size: 0.875rem;
+    color: var(--color-silver);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.15);
+    transition: color 0.3s;
+  }
+
+  .sidebar-links a:hover {
+    color: var(--color-gold);
+  }
+
+  .sidebar-link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-decoration: none;
+  }
+
+  .sidebar-link-arrow:hover {
+    gap: 0.625rem;
+    color: var(--color-gold);
+  }
+
+  .sidebar-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sidebar-area-tag {
+    padding: 0.35rem 0.75rem;
+    background-color: var(--color-charcoal);
+    border: 1px solid rgba(75, 80, 87, 0.3);
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .sidebar-area-tag:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  @media (max-width: 900px) {
+    .combo-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .combo-sidebar {
+      position: static;
+    }
+  }
+</style>

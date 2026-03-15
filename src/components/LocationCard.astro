@@ -1,0 +1,76 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  county: string;
+}
+
+const { name, slug, county } = Astro.props;
+---
+
+<a href={`/locations/${slug}/`} class="location-card card">
+  <div class="location-card__icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+  </div>
+  <h3 class="location-card__name">{name}</h3>
+  <span class="location-card__county">{county}</span>
+  <span class="location-card__link">
+    View area
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+  </span>
+</a>
+
+<style>
+  .location-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .location-card__icon {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .location-card__name {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s;
+  }
+
+  .location-card:hover .location-card__name {
+    color: var(--color-gold);
+  }
+
+  .location-card__county {
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .location-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-top: 1.25rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .location-card:hover .location-card__link {
+    opacity: 1;
+  }
+</style>
