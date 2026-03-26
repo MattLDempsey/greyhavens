@@ -1,0 +1,356 @@
+---
+/**
+ * ServiceAreaMap — SVG-based stylized service area map
+ * Shows 6 service locations across Essex and Suffolk with
+ * gold pins, coverage area, and interactive hover states.
+ *
+ * Coordinate system: we project lat/lng into SVG space.
+ * The bounding box covers roughly:
+ *   lat: 51.68 to 52.42  (north-south)
+ *   lng: 0.58  to 1.16   (east-west)
+ */
+
+interface MapLocation {
+  name: string;
+  county: string;
+  slug: string;
+  lat: number;
+  lng: number;
+}
+
+const locations: MapLocation[] = [
+  { name: 'Colchester', county: 'Essex', slug: 'colchester', lat: 51.889, lng: 0.904 },
+  { name: 'Mersea Island', county: 'Essex', slug: 'mersea-island', lat: 51.780, lng: 0.930 },
+  { name: 'Tiptree', county: 'Essex', slug: 'tiptree', lat: 51.816, lng: 0.750 },
+  { name: 'Witham', county: 'Essex', slug: 'witham', lat: 51.796, lng: 0.638 },
+  { name: 'Maldon', county: 'Essex', slug: 'maldon', lat: 51.731, lng: 0.676 },
+  { name: 'Diss', county: 'Suffolk', slug: 'diss', lat: 52.376, lng: 1.109 },
+];
+
+// SVG dimensions
+const svgW = 700;
+const svgH = 560;
+const padding = 80;
+
+// Bounding box for the region (with some breathing room)
+const minLat = 51.66;
+const maxLat = 52.44;
+const minLng = 0.54;
+const maxLng = 1.22;
+
+// Project lat/lng to SVG x/y
+function toX(lng: number): number {
+  return padding + ((lng - minLng) / (maxLng - minLng)) * (svgW - padding * 2);
+}
+function toY(lat: number): number {
+  // Invert Y because SVG Y goes downward, but latitude goes upward
+  return padding + ((maxLat - lat) / (maxLat - minLat)) * (svgH - padding * 2);
+}
+
+// Compute projected positions
+const points = locations.map(loc => ({
+  ...loc,
+  x: toX(loc.lng),
+  y: toY(loc.lat),
+}));
+
+// Compute centroid of Essex cluster (all except Diss)
+const essexPoints = points.filter(p => p.slug !== 'diss');
+const essexCx = essexPoints.reduce((s, p) => s + p.x, 0) / essexPoints.length;
+const essexCy = essexPoints.reduce((s, p) => s + p.y, 0) / essexPoints.length;
+
+// Compute convex-ish coverage area polygon for Essex cluster
+// Sort Essex points by angle from centroid, then expand slightly
+const essexSorted = [...essexPoints].sort((a, b) => {
+  const angleA = Math.atan2(a.y - essexCy, a.x - essexCx);
+  const angleB = Math.atan2(b.y - essexCy, b.x - essexCx);
+  return angleA - angleB;
+});
+
+// Expand each point outward from centroid for the coverage polygon
+const expandFactor = 1.45;
+const coveragePolygon = essexSorted.map(p => {
+  const dx = p.x - essexCx;
+  const dy = p.y - essexCy;
+  return {
+    x: essexCx + dx * expandFactor,
+    y: essexCy + dy * expandFactor,
+  };
+});
+const coveragePathData = coveragePolygon.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ') + ' Z';
+
+// Diss coverage circle
+const dissPoint = points.find(p => p.slug === 'diss')!;
+---
+
+<div class="map-wrapper">
+  <svg
+    viewBox={`0 0 ${svgW} ${svgH}`}
+    xmlns="http://www.w3.org/2000/svg"
+    class="service-map"
+    role="img"
+    aria-label="Service area map showing Grey Havens locations across Essex and Suffolk"
+  >
+    <defs>
+      <!-- Gold radial glow for pins -->
+      <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="var(--color-gold)" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="var(--color-gold)" stop-opacity="0" />
+      </radialGradient>
+
+      <!-- Coverage area gradient -->
+      <linearGradient id="coverageFill" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="var(--color-gold)" stop-opacity="0.06" />
+        <stop offset="100%" stop-color="var(--color-gold)" stop-opacity="0.12" />
+      </linearGradient>
+
+      <!-- Subtle grid pattern -->
+      <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--color-steel)" stroke-width="0.3" opacity="0.2" />
+      </pattern>
+
+      <!-- Drop shadow for labels -->
+      <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#1a1c20" flood-opacity="0.6" />
+      </filter>
+    </defs>
+
+    <!-- Background grid -->
+    <rect width={svgW} height={svgH} fill="url(#gridPattern)" rx="8" />
+
+    <!-- Region labels -->
+    <text x={toX(0.72)} y={toY(51.95)} class="map-region-label">ESSEX</text>
+    <text x={toX(1.05)} y={toY(52.30)} class="map-region-label">SUFFOLK</text>
+
+    <!-- Coverage area polygon (Essex cluster) -->
+    <path
+      d={coveragePathData}
+      fill="url(#coverageFill)"
+      stroke="var(--color-gold)"
+      stroke-width="1"
+      stroke-opacity="0.2"
+      stroke-dasharray="6 4"
+      class="coverage-area"
+    />
+
+    <!-- Diss coverage circle -->
+    <circle
+      cx={dissPoint.x}
+      cy={dissPoint.y}
+      r="48"
+      fill="url(#coverageFill)"
+      stroke="var(--color-gold)"
+      stroke-width="1"
+      stroke-opacity="0.2"
+      stroke-dasharray="6 4"
+      class="coverage-area"
+    />
+
+    <!-- Connecting line from Essex cluster to Diss -->
+    <line
+      x1={essexCx}
+      y1={essexCy}
+      x2={dissPoint.x}
+      y2={dissPoint.y}
+      stroke="var(--color-gold)"
+      stroke-width="1"
+      stroke-opacity="0.15"
+      stroke-dasharray="4 6"
+    />
+
+    <!-- Location pins -->
+    {points.map((point) => (
+      <g class="map-pin-group" data-location={point.slug}>
+        <a href={`/locations/${point.slug}/`} class="map-pin-link">
+          {/* Glow ring */}
+          <circle cx={point.x} cy={point.y} r="22" fill="url(#pinGlow)" class="pin-glow" />
+
+          {/* Outer ring */}
+          <circle
+            cx={point.x}
+            cy={point.y}
+            r="8"
+            fill="none"
+            stroke="var(--color-gold)"
+            stroke-width="1.5"
+            stroke-opacity="0.4"
+            class="pin-ring"
+          />
+
+          {/* Inner dot */}
+          <circle
+            cx={point.x}
+            cy={point.y}
+            r="4"
+            fill="var(--color-gold)"
+            class="pin-dot"
+          />
+
+          {/* Label */}
+          <text
+            x={point.x}
+            y={point.y - 16}
+            text-anchor="middle"
+            class="map-label"
+            filter="url(#textShadow)"
+          >
+            {point.name}
+          </text>
+
+          {/* County sub-label */}
+          <text
+            x={point.x}
+            y={point.y - 16 + 14}
+            text-anchor="middle"
+            class="map-sublabel"
+          >
+            {point.county}
+          </text>
+        </a>
+      </g>
+    ))}
+  </svg>
+</div>
+
+<style>
+  .map-wrapper {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .service-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: linear-gradient(145deg, var(--color-black), var(--color-charcoal));
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(75, 80, 87, 0.35);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Region labels */
+  .map-region-label {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    fill: var(--color-steel-light);
+    opacity: 0.3;
+    letter-spacing: 0.35em;
+    text-anchor: middle;
+  }
+
+  /* Coverage area animation */
+  .coverage-area {
+    transition: all 0.5s ease;
+  }
+
+  .service-map:hover .coverage-area {
+    stroke-opacity: 0.35;
+  }
+
+  /* Pin labels */
+  .map-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    fill: var(--color-white);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+  }
+
+  .map-sublabel {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 400;
+    fill: var(--color-silver);
+    opacity: 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Pin interactions */
+  .map-pin-link {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .pin-glow {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .pin-ring {
+    transition: all 0.3s ease;
+  }
+
+  .pin-dot {
+    transition: all 0.3s ease;
+  }
+
+  .map-pin-group:hover .pin-glow {
+    opacity: 1;
+  }
+
+  .map-pin-group:hover .pin-ring {
+    stroke-opacity: 0.8;
+    r: 10;
+  }
+
+  .map-pin-group:hover .pin-dot {
+    r: 5;
+  }
+
+  .map-pin-group:hover .map-sublabel {
+    opacity: 0.6;
+  }
+
+  .map-pin-group:hover .map-label {
+    fill: var(--color-gold);
+  }
+
+  /* Subtle entrance animation */
+  @keyframes fadeInPin {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .map-pin-group {
+    animation: fadeInPin 0.6s ease backwards;
+  }
+
+  .map-pin-group:nth-child(1 of .map-pin-group) { animation-delay: 0.1s; }
+  .map-pin-group:nth-child(2 of .map-pin-group) { animation-delay: 0.2s; }
+  .map-pin-group:nth-child(3 of .map-pin-group) { animation-delay: 0.3s; }
+  .map-pin-group:nth-child(4 of .map-pin-group) { animation-delay: 0.4s; }
+  .map-pin-group:nth-child(5 of .map-pin-group) { animation-delay: 0.5s; }
+  .map-pin-group:nth-child(6 of .map-pin-group) { animation-delay: 0.6s; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .map-wrapper {
+      max-width: 100%;
+    }
+
+    .map-label {
+      font-size: 11px;
+    }
+
+    .map-sublabel {
+      font-size: 8px;
+    }
+
+    .map-region-label {
+      font-size: 11px;
+    }
+  }
+</style>

@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'How Much Does an EICR Cost?';
+const description = 'A clear guide to EICR pricing in 2026 — what affects the cost, what the inspection involves, how often you need one, and the legal requirements for landlords in the UK.';
+const publishDate = '2026-02-24';
+const category = 'Compliance';
+const readingTime = '6 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>24 February 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>An Electrical Installation Condition Report — commonly known as an EICR — is a formal inspection of your property's fixed electrical installation. Whether you are a homeowner wanting peace of mind, a landlord meeting your legal obligations, or buying a property and want to know what you are inheriting, understanding the cost and process is important.</p>
+
+        <h2>What Is an EICR?</h2>
+
+        <p>An EICR is a detailed assessment of your property's electrical wiring, consumer unit, earthing, bonding, sockets, switches, and fixed electrical equipment. A qualified electrician inspects and tests the installation, then produces a report grading any issues found.</p>
+
+        <p>The grading codes used are:</p>
+
+        <ul>
+          <li><strong>C1 — Danger present</strong> — an immediate risk that requires urgent attention</li>
+          <li><strong>C2 — Potentially dangerous</strong> — a fault that could become dangerous and needs remedial work</li>
+          <li><strong>C3 — Improvement recommended</strong> — not immediately dangerous, but an upgrade would improve safety</li>
+          <li><strong>FI — Further investigation</strong> — additional testing is needed to confirm the condition</li>
+        </ul>
+
+        <p>A report with no C1 or C2 codes is classified as satisfactory. If C1 or C2 codes are present, the report is unsatisfactory and remedial work is needed.</p>
+
+        <h2>How Much Does an EICR Cost in 2026?</h2>
+
+        <p>EICR pricing varies depending on the size and age of the property, the number of circuits, and the accessibility of the installation. Here are typical prices for domestic properties in Essex and Suffolk:</p>
+
+        <div class="pricing-table">
+          <div class="pricing-row">
+            <span class="pricing-label">1-2 bedroom flat or apartment</span>
+            <span class="pricing-value">&pound;150 &ndash; &pound;200</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">3 bedroom house</span>
+            <span class="pricing-value">&pound;200 &ndash; &pound;275</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">4-5 bedroom house</span>
+            <span class="pricing-value">&pound;250 &ndash; &pound;350</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-label">Larger or older properties</span>
+            <span class="pricing-value">From &pound;350</span>
+          </div>
+        </div>
+
+        <p>These prices are for the inspection and report only. If remedial work is required to address any C1 or C2 findings, that would be quoted separately.</p>
+
+        <h3>What affects the price?</h3>
+
+        <p>Several factors influence the cost:</p>
+
+        <ul>
+          <li><strong>Number of circuits</strong> — more circuits means more individual tests, which takes longer</li>
+          <li><strong>Age of the installation</strong> — older properties with dated wiring take longer to assess thoroughly</li>
+          <li><strong>Accessibility</strong> — if the consumer unit or wiring is in difficult-to-reach locations, the inspection takes more time</li>
+          <li><strong>Previous condition</strong> — a well-maintained installation with a recent <a href="/services/consumer-unit-replacement/">consumer unit upgrade</a> will generally be quicker to inspect than one that has not been tested in decades</li>
+        </ul>
+
+        <h2>What Does the Inspection Involve?</h2>
+
+        <p>An EICR is a thorough process. It is not simply a visual check — it involves testing at the consumer unit and at various points throughout the property. Here is what happens:</p>
+
+        <ul>
+          <li>Visual inspection of the consumer unit, wiring, sockets, switches, and fixed appliances</li>
+          <li>Testing of earthing and bonding arrangements</li>
+          <li>Insulation resistance testing on every circuit</li>
+          <li>Earth fault loop impedance testing</li>
+          <li>RCD trip time testing</li>
+          <li>Polarity checks</li>
+          <li>Assessment of the overall condition against BS 7671 (the IET Wiring Regulations)</li>
+        </ul>
+
+        <p>The electrician will need access to the consumer unit and all rooms in the property. Some circuits may need to be temporarily disconnected during testing. For a typical three-bedroom house, the inspection takes around two to three hours.</p>
+
+        <h2>How Often Do You Need an EICR?</h2>
+
+        <p>The recommended intervals are:</p>
+
+        <ul>
+          <li><strong>Rental properties</strong> — every 5 years (this is a legal requirement)</li>
+          <li><strong>Owner-occupied homes</strong> — every 10 years (recommended, not legally required)</li>
+          <li><strong>On change of occupancy</strong> — recommended when buying a property or taking on new tenants</li>
+          <li><strong>Older properties</strong> — more frequently if the installation is aging or has not been inspected before</li>
+        </ul>
+
+        <h2>EICR Requirements for Landlords</h2>
+
+        <p>Since 1 April 2021, landlords in England are legally required to have a valid EICR for every rental property. The regulations state that:</p>
+
+        <ul>
+          <li>An EICR must be obtained before new tenants move in</li>
+          <li>The report must be renewed at least every five years</li>
+          <li>A copy must be provided to tenants within 28 days of the inspection</li>
+          <li>A copy must be provided to the local authority within seven days if requested</li>
+          <li>Any C1 or C2 issues identified must be remediated within 28 days (or sooner for C1)</li>
+        </ul>
+
+        <p>Failure to comply can result in fines of up to £30,000. If you are a landlord and your current EICR is approaching its expiry, or if you do not yet have one, it is important to get this arranged promptly.</p>
+
+        <h2>What Happens If the EICR Fails?</h2>
+
+        <p>An unsatisfactory EICR does not necessarily mean your wiring is in terrible condition. Common C2 findings include missing RCD protection, inadequate earthing or bonding, or wear and degradation on older circuits. These are often straightforward to address.</p>
+
+        <p>We can carry out any necessary remedial work and then re-test to confirm the installation is satisfactory. In many cases, a <a href="/services/consumer-unit-replacement/">consumer unit replacement</a> resolves a significant number of findings in one go, as it brings the protection and distribution side of the installation up to current standards.</p>
+
+        <p>For properties with more extensive issues, a partial or full <a href="/services/rewires/">rewire</a> may be recommended. We will always explain the findings clearly and give you an honest assessment of what is needed versus what is optional.</p>
+
+        <h2>Booking an EICR</h2>
+
+        <p>We carry out <a href="/services/eicr-certificates/">EICR inspections</a> across Essex and Suffolk for homeowners, landlords, and estate agents. The process is simple: get in touch, and we will arrange a convenient time to inspect the property. You will receive a full report on the day, along with clear advice on any findings.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/eicr-certificates/">EICR Certificates</a></li>
+            <li><a href="/services/consumer-unit-replacement/">Consumer Unit Replacement</a></li>
+            <li><a href="/services/rewires/">Rewiring</a></li>
+            <li><a href="/services/fault-finding/">Fault Finding & Diagnosis</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Need an EICR?"
+    description="We carry out EICR inspections across Essex and Suffolk for homeowners, landlords, and letting agents. Get in touch for a quote."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="EICR Service Details"
+    secondaryHref="/services/eicr-certificates/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .pricing-table {
+    margin: 1.5rem 0 2rem;
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .pricing-row:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-row:nth-child(odd) {
+    background-color: rgba(51, 54, 61, 0.5);
+  }
+
+  .pricing-label {
+    color: var(--color-silver);
+    font-size: 0.95rem;
+  }
+
+  .pricing-value {
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+    .pricing-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      padding: 0.875rem 1.25rem;
+    }
+  }
+</style>

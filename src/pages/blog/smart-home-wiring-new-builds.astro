@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'Planning Smart Home Wiring for New Builds and Renovations';
+const description = 'A practical guide to planning ethernet, WiFi, smart lighting, and future-proof cabling during a new build or renovation — from structured wiring to access points.';
+const publishDate = '2026-03-12';
+const category = 'Smart Home';
+const readingTime = '7 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>12 March 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>If you are building a new home or carrying out a significant renovation, you have a rare opportunity: the walls are open, the floors are accessible, and running cable is straightforward. Once the plaster goes on and the flooring goes down, retrofitting becomes significantly more difficult and expensive.</p>
+
+        <p>Getting your smart home wiring right at this stage is one of the best investments you can make. Here is what to consider.</p>
+
+        <h2>Why Wiring Matters More Than You Think</h2>
+
+        <p>Modern smart homes depend on reliable connectivity. WiFi alone is not enough for a robust setup — it is a shared, congested medium that struggles with walls, floors, and distance. The backbone of any serious smart home is structured cabling: physical ethernet connections that provide reliable, high-speed data to the devices and access points that need it most.</p>
+
+        <p>The cost of running cable during a build is a fraction of what it costs to retrofit later. A few hundred pounds spent now on cabling infrastructure can save thousands down the line, while also delivering a noticeably better experience from day one.</p>
+
+        <h2>Ethernet: The Foundation of Everything</h2>
+
+        <p>Ethernet cabling is the single most important smart home infrastructure investment. Here is where to run it:</p>
+
+        <h3>WiFi access point locations</h3>
+        <p>Rather than relying on a single router to cover your entire home, a properly designed <a href="/services/home-wifi-systems/">WiFi system</a> uses multiple access points connected by ethernet. This provides consistent, high-speed coverage in every room. Run a Cat6A cable to a central ceiling location on each floor — this is the optimal position for access point placement.</p>
+
+        <h3>Living areas and home offices</h3>
+        <p>Run at least two ethernet drops to your main living room, home office, and any room where you might use a TV, games console, desktop computer, or streaming device. Wired connections are faster, more reliable, and do not compete with other WiFi traffic.</p>
+
+        <h3>Entertainment zones</h3>
+        <p>If you are planning a dedicated media room or <a href="/services/home-cinema-wiring/">home cinema</a>, run multiple ethernet cables plus any HDMI or speaker cabling you might need. Consider cable runs for in-ceiling or in-wall speakers, a projector location, and equipment rack positions.</p>
+
+        <h3>Security cameras</h3>
+        <p>Wired <a href="/services/cctv-installation/">CCTV cameras</a> powered over ethernet (PoE) are more reliable than WiFi cameras and do not depend on your wireless network. Plan camera positions early — front door, rear garden, side access, driveway — and run a Cat6 cable to each location.</p>
+
+        <h3>Central patch panel</h3>
+        <p>All ethernet runs should terminate at a central location — typically a cupboard, utility room, or dedicated network cabinet. This is where your router, network switch, and any PoE switches will live. Make sure this location has adequate ventilation, a power supply, and enough space for equipment.</p>
+
+        <h2>Smart Lighting Preparation</h2>
+
+        <p>Smart lighting is one of the most popular and practical smart home features. But how you implement it depends on the wiring you put in place:</p>
+
+        <h3>Neutral wire at every switch</h3>
+        <p>Many smart switches require a neutral wire at the switch plate. In older UK properties, it is common for switch drops to only contain a live and switched-live — no neutral. If you are doing a new build or rewire, make sure every switch location has a neutral wire. This gives you maximum flexibility for smart switches in the future.</p>
+
+        <h3>Lighting circuits</h3>
+        <p>Consider how you want to zone your <a href="/services/lighting-installation/">lighting</a>. Open-plan living areas often benefit from multiple independently controlled circuits — for example, separate circuits for downlights, pendants, and accent lighting. This is simple to do during a build and very difficult to change later.</p>
+
+        <h3>Dimming capability</h3>
+        <p>If you want dimmable smart lighting, the wiring itself does not change, but you should plan for LED-compatible dimmer switches and ensure your LED fittings are dimmable. Smart dimmer modules like those from Shelly or Fibaro fit behind standard switch plates and can be installed now or added later — as long as the neutral wire is present.</p>
+
+        <h2>Future-Proofing: What Else to Consider</h2>
+
+        <h3>EV charger preparation</h3>
+        <p>If there is any chance you will own an electric vehicle in the coming years, run a suitable cable from the consumer unit to the planned charge point location during the build. An <a href="/services/ev-charger-installation/">EV charger installation</a> requires a dedicated circuit, and having the cable in place means the charger can be fitted later without significant additional work.</p>
+
+        <h3>Conduit for future runs</h3>
+        <p>Even if you are not sure exactly what you will need, installing empty conduit (plastic tubing) between key locations is extremely cheap during a build and invaluable later. Common conduit routes include:</p>
+
+        <ul>
+          <li>From the network cabinet to the loft space</li>
+          <li>Between floors at accessible points</li>
+          <li>From the consumer unit to the garage or external wall</li>
+          <li>To planned speaker, camera, or display locations</li>
+        </ul>
+
+        <h3>Outdoor wiring</h3>
+        <p>Garden lighting, external cameras, outdoor speakers, electric gates — these all need cable. If your landscaping is being done as part of the build, lay ducting for power and data to key outdoor locations. A simple length of buried duct to the bottom of the garden could save considerable disruption later.</p>
+
+        <h3>Home automation hub location</h3>
+        <p>If you are planning a <a href="/services/smart-home-installation/">smart home system</a>, the hub or controller should be located centrally and near your network equipment. Many systems like Home Assistant, Control4, or Loxone require a wired ethernet connection and a reliable power supply. Factor this into your network cabinet planning.</p>
+
+        <h2>What Cable Should You Use?</h2>
+
+        <p>For new installations, we recommend:</p>
+
+        <ul>
+          <li><strong>Cat6A for data</strong> — supports 10 Gigabit speeds up to 100m and is well-suited for PoE devices. Cat6A is only marginally more expensive than Cat6 but offers significantly better future-proofing</li>
+          <li><strong>LS0H (Low Smoke Zero Halogen) sheathing</strong> — preferred for domestic installations as it produces less toxic smoke in the event of a fire</li>
+          <li><strong>Solid core cable</strong> — for permanent in-wall runs (patch cables at the ends use stranded core)</li>
+        </ul>
+
+        <p>Avoid using Cat5e for new installations. It is an older standard and while it works fine for current needs, Cat6A provides a much longer useful lifespan for a modest price difference.</p>
+
+        <h2>Getting the Design Right</h2>
+
+        <p>The best time to plan your smart home infrastructure is before the first fix stage of your build or renovation. We work with homeowners, builders, and architects to design cable layouts that match the property and the intended use. This includes:</p>
+
+        <ul>
+          <li>A floor-by-floor cable plan showing every run</li>
+          <li>WiFi access point positioning based on the property layout</li>
+          <li>Equipment location and network cabinet specification</li>
+          <li>Integration with the electrical design and lighting plan</li>
+        </ul>
+
+        <p>Getting this right at the planning stage avoids the compromises that come with retrofitting, and ensures you get a clean, professional installation with no visible cabling.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/ethernet-wiring/">Ethernet & Structured Cabling</a></li>
+            <li><a href="/services/home-wifi-systems/">Home WiFi Systems</a></li>
+            <li><a href="/services/smart-home-installation/">Smart Home Installation</a></li>
+            <li><a href="/services/cctv-installation/">CCTV Installation</a></li>
+            <li><a href="/services/home-cinema-wiring/">Home Cinema Wiring</a></li>
+            <li><a href="/services/lighting-installation/">Lighting Installation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Planning a Build or Renovation?"
+    description="Get in touch early to discuss your smart home wiring. We can design a cabling plan that fits your property and your ambitions — and it is always easier while the walls are open."
+    primaryText="Discuss Your Project"
+    primaryHref="/contact/"
+    secondaryText="Smart Home Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

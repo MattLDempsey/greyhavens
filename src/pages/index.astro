@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import LocationCard from '../components/LocationCard.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import CTABand from '../components/CTABand.astro';
 import { getServicesByCategory } from '../data/services';
@@ -108,14 +109,19 @@ const smartHomeServices = getServicesByCategory('smart-home');
         <h2>Areas We Cover</h2>
         <p class="text-silver">We provide electrical and smart home services across Essex and Suffolk, covering these key areas and surrounding villages.</p>
       </div>
-      <div class="grid grid--3">
-        {locations.map(location => (
-          <LocationCard
-            name={location.name}
-            slug={location.slug}
-            county={location.county}
-          />
-        ))}
+      <div class="areas-layout">
+        <div class="areas-map">
+          <ServiceAreaMap />
+        </div>
+        <div class="areas-locations">
+          {locations.map(location => (
+            <LocationCard
+              name={location.name}
+              slug={location.slug}
+              county={location.county}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -190,6 +196,46 @@ const smartHomeServices = getServicesByCategory('smart-home');
     }
     .why-image__placeholder {
       aspect-ratio: 16 / 9;
+    }
+  }
+
+  /* Areas We Cover layout */
+  .areas-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .areas-map {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .areas-locations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 992px) {
+    .areas-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .areas-map {
+      position: static;
+    }
+
+    .areas-locations {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .areas-locations {
+      grid-template-columns: 1fr;
     }
   }
 </style>

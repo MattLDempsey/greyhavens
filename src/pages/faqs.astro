@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+import { services, serviceCategories } from '../data/services';
+
+const title = 'Frequently Asked Questions | Grey Havens';
+const description = 'Find answers to common questions about our electrical, property compliance, and smart home services across Essex and Suffolk.';
+
+// Group FAQs by category
+const categories = [
+  { key: 'electrical' as const, label: serviceCategories.electrical.name },
+  { key: 'compliance' as const, label: serviceCategories.compliance.name },
+  { key: 'smart-home' as const, label: serviceCategories['smart-home'].name },
+];
+
+// Collect all FAQs for structured data
+const allFaqs = services.flatMap(service => service.faqs);
+---
+
+<BaseLayout title={title} description={description}>
+  <FAQSchema items={allFaqs} slot="schema" />
+
+  <Hero
+    compact
+    title="Frequently Asked Questions"
+    subtitle="FAQs"
+    description="Answers to the questions we hear most about our electrical, compliance, and smart home services."
+  />
+
+  <div class="faq-hub">
+    {categories.map(({ key, label }) => {
+      const categoryServices = services.filter(s => s.category === key);
+      return (
+        <section class="faq-hub__category">
+          <div class="container container--narrow">
+            <h2 class="faq-hub__category-title">{label}</h2>
+            <hr class="gold-line gold-line--left" />
+
+            {categoryServices.map(service => (
+              <div class="faq-hub__service-group">
+                <h3 class="faq-hub__service-title">
+                  <a href={`/services/${service.slug}/`}>{service.name}</a>
+                </h3>
+                <div class="faq-list">
+                  {service.faqs.map(item => (
+                    <details class="faq-item" name={`faq-${service.slug}`}>
+                      <summary class="faq-item__question">
+                        <span>{item.question}</span>
+                        <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </summary>
+                      <div class="faq-item__answer">
+                        <p>{item.answer}</p>
+                      </div>
+                    </details>
+                  ))}
+                </div>
+                <a href={`/services/${service.slug}/`} class="faq-hub__service-link">
+                  Learn more about {service.name} &rarr;
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+
+  <CTABand
+    title="Still Have Questions?"
+    description="Get in touch and we'll be happy to help. We provide free, no-obligation quotes for all planned work."
+    primaryText="Get in Touch"
+    primaryHref="/contact/"
+    secondaryText="View All Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .faq-hub {
+    padding: 2rem 0;
+  }
+
+  .faq-hub__category {
+    padding: 4rem 0;
+  }
+
+  .faq-hub__category:nth-child(even) {
+    background-color: var(--color-black);
+  }
+
+  .faq-hub__category-title {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    color: var(--color-white);
+  }
+
+  .faq-hub__service-group {
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.2);
+  }
+
+  .faq-hub__service-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .faq-hub__service-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-hub__service-title a {
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .faq-hub__service-title a:hover {
+    color: var(--color-silver-light);
+  }
+
+  .faq-hub__service-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    transition: color var(--transition);
+  }
+
+  .faq-hub__service-link:hover {
+    color: var(--color-silver-light);
+  }
+
+  /* FAQ accordion — mirrors FAQ.astro component styles */
+  .faq-list {
+    margin-top: 0.75rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    list-style: none;
+    transition: color 0.3s;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question:hover {
+    color: var(--color-gold);
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer {
+    padding: 0 0 1.5rem 0;
+    color: var(--color-silver);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 640px) {
+    .faq-hub__category {
+      padding: 3rem 0;
+    }
+  }
+</style>

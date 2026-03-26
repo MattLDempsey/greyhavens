@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const posts = [
+  {
+    title: 'Planning Smart Home Wiring for New Builds and Renovations',
+    slug: 'smart-home-wiring-new-builds',
+    date: '2026-03-12',
+    excerpt: 'If you are building or renovating, this is the ideal time to install structured cabling, WiFi access points, and smart lighting infrastructure. Here is what to consider before the walls close up.',
+    category: 'Smart Home',
+    readingTime: '7 min read',
+  },
+  {
+    title: 'How Much Does an EICR Cost?',
+    slug: 'how-much-does-an-eicr-cost',
+    date: '2026-02-24',
+    excerpt: 'A clear breakdown of EICR pricing in 2026 — what affects the cost, what the inspection involves, how often you need one, and the legal requirements for landlords.',
+    category: 'Compliance',
+    readingTime: '6 min read',
+  },
+  {
+    title: 'Do I Need a Consumer Unit Upgrade?',
+    slug: 'do-i-need-a-consumer-unit-upgrade',
+    date: '2026-02-10',
+    excerpt: 'If your home still has an old fuse box, it may not be providing the protection you need. Learn the signs that your consumer unit needs replacing and what a modern upgrade involves.',
+    category: 'Electrical',
+    readingTime: '6 min read',
+  },
+];
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout
+  title="Blog | Grey Havens Electrical & Smart Home"
+  description="Practical guides and expert advice on electrical work, smart home technology, and property compliance from Grey Havens — serving Essex and Suffolk."
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title="Guides, Advice & Insights"
+    description="Practical articles on electrical work, smart home technology, and keeping your property safe and compliant."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}/`} class="blog-card card">
+            <div class="blog-card__meta">
+              <span class="blog-card__category">{post.category}</span>
+              <span class="blog-card__date">{formatDate(post.date)}</span>
+            </div>
+            <h2 class="blog-card__title">{post.title}</h2>
+            <p class="blog-card__excerpt">{post.excerpt}</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__read-time">{post.readingTime}</span>
+              <span class="blog-card__link">Read more &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    title="Have a Question?"
+    description="If you have a question about any of our services or need advice on your electrical or smart home project, get in touch."
+    primaryText="Get in Touch"
+    primaryHref="/contact/"
+    secondaryText="View Our Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 2.5rem;
+  }
+
+  .blog-card:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  .blog-card:hover .blog-card__link {
+    color: var(--color-gold);
+  }
+
+  .blog-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-card__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .blog-card__date {
+    font-size: 0.85rem;
+    color: var(--color-steel-light);
+  }
+
+  .blog-card__title {
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    color: var(--color-white);
+  }
+
+  .blog-card__excerpt {
+    color: var(--color-silver);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    opacity: 0.85;
+  }
+
+  .blog-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .blog-card__read-time {
+    font-size: 0.85rem;
+    color: var(--color-steel-light);
+  }
+
+  .blog-card__link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-silver);
+    transition: color var(--transition);
+  }
+</style>
