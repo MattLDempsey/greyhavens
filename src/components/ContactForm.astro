@@ -6,7 +6,11 @@ interface Props {
 const { compact = false } = Astro.props;
 ---
 
-<form class:list={['contact-form', { 'contact-form--compact': compact }]} action="#" method="POST" id="contact-form">
+<form class:list={['contact-form', { 'contact-form--compact': compact }]} action="https://formsubmit.co/hello@thegreyhavens.co.uk" method="POST" id="contact-form">
+  <input type="hidden" name="_subject" value="New Quote Request — Grey Havens" />
+  <input type="hidden" name="_next" value="https://thegreyhavens.co.uk/contact?submitted=true" />
+  <input type="text" name="_honey" style="display:none" />
+  <input type="hidden" name="_captcha" value="false" />
   <div class="form__row form__row--2">
     <div class="form__group">
       <label for="name" class="form__label">Name <span class="form__required">*</span></label>
