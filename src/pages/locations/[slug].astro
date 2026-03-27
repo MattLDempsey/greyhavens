@@ -135,6 +135,9 @@ const otherLocations = locations.filter(l => l.slug !== location.slug);
   {location.localFaqs.length > 0 && (
     <section class="section--dark">
       <FAQ items={location.localFaqs} title={`Electrician in ${location.name} — FAQs`} />
+      <div class="container" style="text-align: center; padding-bottom: 3rem;">
+        <a href="/faqs/" class="view-all-faqs">View All FAQs &rarr;</a>
+      </div>
     </section>
   )}
 
@@ -227,6 +230,19 @@ const otherLocations = locations.filter(l => l.slug !== location.slug);
   .other-location-tag:hover {
     border-color: var(--color-gold);
     color: var(--color-gold);
+  }
+
+  .view-all-faqs {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+
+  .view-all-faqs:hover {
+    opacity: 0.8;
   }
 
   @media (max-width: 768px) {

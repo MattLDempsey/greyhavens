@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'Landlord Electrical Safety: Your Legal Obligations';
+const description = 'A clear guide to landlord electrical safety requirements in England — EICR regulations, compliance timescales, penalties, tenant rights, PAT testing, and smoke and CO alarm rules.';
+const publishDate = '2026-03-26';
+const category = 'Compliance';
+const readingTime = '5 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>26 March 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>If you are a landlord in England, electrical safety in your rental property is not optional — it is a legal requirement with serious financial penalties for non-compliance. The regulations are straightforward, but many landlords are still unclear on exactly what they need to do and by when.</p>
+
+        <p>Here is a plain-English summary of your obligations.</p>
+
+        <h2>The Electrical Safety Standards Regulations 2020</h2>
+
+        <p>The Electrical Safety Standards in the Private Rented Sector (England) Regulations 2020 came into full effect on 1 April 2021. They apply to all private rented properties in England — including houses, flats, and HMOs (houses in multiple occupation).</p>
+
+        <p>The core requirement is simple: landlords must ensure that the electrical installation in their property is inspected and tested by a qualified electrician, and that a report — an <a href="/services/eicr-certificates/">Electrical Installation Condition Report (EICR)</a> — is obtained at least every five years.</p>
+
+        <h2>What the EICR Covers</h2>
+
+        <p>An EICR is a thorough inspection of the fixed electrical installation in the property. This includes:</p>
+
+        <ul>
+          <li>The consumer unit (fuse box) and its protective devices</li>
+          <li>All fixed wiring throughout the property</li>
+          <li>Sockets, switches, and light fittings</li>
+          <li>Earthing and bonding arrangements</li>
+          <li>Fixed electrical equipment such as electric showers, cookers, and immersion heaters</li>
+        </ul>
+
+        <p>The inspection does not cover portable appliances (kettles, toasters, and similar) — that falls under PAT testing, which is a separate matter covered below.</p>
+
+        <p>The electrician tests the installation against BS 7671 (the IET Wiring Regulations) and produces a report grading any issues found. A satisfactory report means no dangerous defects were identified. An unsatisfactory report means remedial work is required.</p>
+
+        <h2>Timescales and Requirements</h2>
+
+        <p>The regulations set out clear timescales:</p>
+
+        <h3>New tenancies</h3>
+        <p>A valid EICR must be in place before new tenants move in. If you are letting a property for the first time or to new tenants, the inspection must be completed and any required remedial work carried out before the tenancy begins.</p>
+
+        <h3>Existing tenancies</h3>
+        <p>All existing tenancies must have a valid EICR. If your current report is more than five years old — or you have never had one — you need to arrange an inspection promptly.</p>
+
+        <h3>Providing the report</h3>
+        <p>You must provide a copy of the EICR to:</p>
+
+        <ul>
+          <li><strong>Existing tenants</strong> — within 28 days of the inspection</li>
+          <li><strong>New tenants</strong> — before they move in</li>
+          <li><strong>Prospective tenants</strong> — within 28 days of a request</li>
+          <li><strong>The local authority</strong> — within 7 days of a request</li>
+        </ul>
+
+        <h3>Remedial work</h3>
+        <p>If the EICR identifies any C1 (danger present) or C2 (potentially dangerous) issues, the landlord must complete the necessary remedial work within 28 days — or sooner if the report specifies an earlier deadline. C1 issues, which represent an immediate danger, should be addressed as a matter of urgency.</p>
+
+        <p>Once the remedial work is complete, written confirmation from the electrician must be provided to the tenant and the local authority (if requested) within 28 days.</p>
+
+        <h2>What Happens If You Do Not Comply?</h2>
+
+        <p>The consequences of non-compliance are significant:</p>
+
+        <ul>
+          <li><strong>Financial penalties</strong> — local authorities can impose fines of up to £30,000 for breaches of the regulations</li>
+          <li><strong>Remedial action notices</strong> — the local authority can require you to carry out specific work within a set timeframe, and if you fail to do so, they can arrange the work themselves and recover the costs from you</li>
+          <li><strong>Reputational and legal risk</strong> — if a tenant is injured due to an electrical fault in a property where the landlord has not met their obligations, the legal and financial consequences could be severe</li>
+        </ul>
+
+        <p>The regulations are enforced by local authorities, and while enforcement has varied across different councils, the trend is clearly toward more active monitoring and higher penalties.</p>
+
+        <h2>Tenant Rights</h2>
+
+        <p>Tenants have the right to:</p>
+
+        <ul>
+          <li>Receive a copy of the most recent EICR for the property</li>
+          <li>Request that the landlord arranges an EICR if one has not been carried out</li>
+          <li>Report concerns about electrical safety to the local authority</li>
+          <li>Expect that any required remedial work is completed within the specified timescales</li>
+        </ul>
+
+        <p>Tenants cannot unreasonably refuse access for the inspection or remedial work, but landlords must give appropriate notice and arrange a convenient time.</p>
+
+        <h2>Common EICR Findings in Rental Properties</h2>
+
+        <p>Many rental properties — particularly older ones — receive an unsatisfactory EICR on first inspection. This does not necessarily mean the property is dangerous, but it does mean work is needed. Common findings include:</p>
+
+        <ul>
+          <li><strong>Lack of RCD protection</strong> — the <a href="/services/consumer-unit-replacement/">consumer unit</a> does not include modern RCD devices that protect against electric shock</li>
+          <li><strong>Inadequate earthing or bonding</strong> — the earthing arrangement does not meet current standards</li>
+          <li><strong>Deteriorating wiring</strong> — older cables with degraded insulation that may need a partial or full <a href="/services/rewires/">rewire</a></li>
+          <li><strong>Overloaded circuits</strong> — circuits carrying more load than they were designed for</li>
+          <li><strong>DIY work</strong> — previous <a href="/services/fault-finding/">electrical work</a> that was not carried out to the required standard</li>
+        </ul>
+
+        <p>A consumer unit replacement resolves several of these findings at once and is often the most cost-effective single improvement a landlord can make.</p>
+
+        <h2>PAT Testing: Not Legally Required, But Recommended</h2>
+
+        <p>Portable Appliance Testing (PAT) involves checking the safety of portable electrical items — things like kettles, toasters, and any appliances you provide as part of a furnished let. Unlike the EICR, PAT testing is not a legal requirement for landlords.</p>
+
+        <p>However, landlords do have a general duty of care to ensure that appliances they provide are safe. If a tenant is injured by a faulty appliance that the landlord supplied, the landlord could be liable. For this reason, regular PAT testing of any appliances included with the property is strongly recommended. It is inexpensive and provides documented evidence that the items were safe at the time of testing.</p>
+
+        <h2>Smoke and Carbon Monoxide Alarms</h2>
+
+        <p>While not strictly part of the electrical safety regulations, smoke and carbon monoxide alarm requirements are closely related and worth mentioning:</p>
+
+        <ul>
+          <li><strong>Smoke alarms</strong> — at least one must be installed on every storey of the property where there is a habitable room. Since October 2022, these must be repaired or replaced if they are found to be faulty at the start of a new tenancy</li>
+          <li><strong>Carbon monoxide alarms</strong> — required in any room containing a fixed combustion appliance (gas boiler, gas fire, wood-burning stove, etc.), excluding gas cookers</li>
+        </ul>
+
+        <p>Landlords must ensure these alarms are in working order at the start of each new tenancy. Failure to comply can result in a fine of up to £5,000.</p>
+
+        <h2>Staying Compliant</h2>
+
+        <p>The simplest way to stay on the right side of these regulations is to keep a record of your EICR expiry date and arrange the next inspection in good time. We work with landlords and letting agents across Essex and Suffolk, and we can help you stay on schedule — whether that is a single property or a larger portfolio.</p>
+
+        <p>If your EICR is due, overdue, or you have never had one, get in touch and we will arrange an inspection at a time that works for you and your tenants.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/eicr-certificates/">EICR Certificates</a></li>
+            <li><a href="/services/consumer-unit-replacement/">Consumer Unit Replacement</a></li>
+            <li><a href="/services/fault-finding/">Fault Finding & Diagnosis</a></li>
+            <li><a href="/services/rewires/">Rewiring</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Landlord EICR Due?"
+    description="We carry out EICR inspections and remedial work for landlords and letting agents across Essex and Suffolk. Get in touch to arrange an inspection."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="EICR Service Details"
+    secondaryHref="/services/eicr-certificates/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

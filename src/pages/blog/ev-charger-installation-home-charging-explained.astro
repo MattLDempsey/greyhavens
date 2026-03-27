@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'EV Charger Installation: Home Charging Explained';
+const description = 'A practical guide to home EV charger installation in the UK — charger types, tethered vs untethered, grant eligibility, installation requirements, smart features, and running costs.';
+const publishDate = '2026-03-18';
+const category = 'EV Charging';
+const readingTime = '6 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>18 March 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>If you have recently bought an electric vehicle — or are considering one — installing a home charger is one of the most practical decisions you can make. Charging at home is cheaper, more convenient, and significantly faster than relying on a standard three-pin plug. But the options, requirements, and terminology can be confusing.</p>
+
+        <p>Here is a clear, practical guide to what is involved.</p>
+
+        <h2>Types of Home EV Charger</h2>
+
+        <p>Home chargers are categorised by their power output, which directly affects how quickly they charge your vehicle:</p>
+
+        <h3>3.6kW (slow)</h3>
+        <p>A 3.6kW charger runs on a single-phase supply and adds roughly 10 to 15 miles of range per hour of charging. This is the minimum dedicated charger speed and is rarely installed as a standalone unit today, though some older or budget models operate at this level. Charging a typical EV from empty to full would take around 12 to 16 hours.</p>
+
+        <h3>7kW (fast — the standard choice)</h3>
+        <p>A 7kW charger is the most common domestic installation in the UK. It runs on a single-phase supply — which is what the vast majority of homes have — and adds roughly 25 to 30 miles of range per hour. A full charge typically takes 6 to 8 hours, which fits comfortably into an overnight charging window. For most households, this is the ideal balance of speed and practicality.</p>
+
+        <h3>22kW (rapid)</h3>
+        <p>A 22kW charger requires a three-phase electricity supply, which most UK homes do not have. If your property does have three-phase power — more common in rural areas, larger homes, or commercial buildings — a 22kW unit can fully charge many EVs in 3 to 4 hours. However, the vehicle itself must also support 22kW AC charging, which not all do.</p>
+
+        <p>For the majority of domestic installations, a 7kW unit is the right choice.</p>
+
+        <h2>Tethered vs Untethered</h2>
+
+        <p>This is one of the first decisions you will need to make:</p>
+
+        <ul>
+          <li><strong>Tethered</strong> — the charging cable is permanently attached to the unit. You simply pull it out and plug into your car. This is the most convenient option, especially in bad weather or if you charge regularly</li>
+          <li><strong>Untethered</strong> — the unit has a socket, and you use your own cable to connect. This is useful if you have multiple vehicles with different connectors, or if you prefer a tidier installation when the charger is not in use</li>
+        </ul>
+
+        <p>Most homeowners with a single EV opt for a tethered unit. If you have two electric vehicles or share the charger with a neighbour, untethered offers more flexibility.</p>
+
+        <h2>The OZEV Grant (Electric Vehicle Homecharge Scheme)</h2>
+
+        <p>The UK government previously offered a grant of up to £350 towards home charger installation through the Electric Vehicle Homecharge Scheme (EVHS). This grant closed to most homeowners in April 2022, but financial support is still available in certain circumstances.</p>
+
+        <p>The EV Chargepoint Grant remains open to:</p>
+
+        <ul>
+          <li><strong>Renters and tenants</strong> — in both the private and social rented sectors</li>
+          <li><strong>Flat owners</strong> — those who own a flat in a building with dedicated off-street parking</li>
+          <li><strong>Landlords</strong> — who wish to install chargepoints at rental properties</li>
+        </ul>
+
+        <p>If you fall into one of these categories, the grant can contribute up to £350 (or 75% of the cost, whichever is lower) towards the purchase and installation of a home charger. We can advise on eligibility and handle the application on your behalf as an OZEV-approved installer.</p>
+
+        <h2>Installation Requirements</h2>
+
+        <p>A home EV charger is not a plug-and-play device. It requires professional installation by a qualified electrician. Here is what is involved:</p>
+
+        <h3>Dedicated circuit</h3>
+        <p>Your charger needs its own dedicated circuit from the <a href="/services/consumer-unit-replacement/">consumer unit</a>, protected by an appropriately rated MCB and RCD. This circuit cannot be shared with other appliances or sockets.</p>
+
+        <h3>Consumer unit capacity</h3>
+        <p>A 7kW charger draws around 32 amps — a significant load. Your consumer unit needs to have a spare way and sufficient capacity to support this. In some cases, particularly in older properties, a consumer unit upgrade may be needed before the charger can be installed. We assess this as part of our survey.</p>
+
+        <h3>Earthing</h3>
+        <p>EV charger installations require a compliant earthing arrangement, typically TN-S or TN-C-S. Properties with an older TT earthing system may need additional work to meet the requirements of BS 7671.</p>
+
+        <h3>Location</h3>
+        <p>Chargers are most commonly installed on an external wall near the driveway or in a garage. The unit needs to be within cable reach of the consumer unit, and the cable route needs to be planned to avoid unnecessary disruption. Outdoor units are weatherproof and rated for year-round external use.</p>
+
+        <h3>DNO notification</h3>
+        <p>Under the Electric Vehicles (Smart Charge Points) Regulations 2021, all new home charger installations must be notified to the local Distribution Network Operator (DNO). We handle this notification as part of the installation process.</p>
+
+        <h2>Smart Charging Features</h2>
+
+        <p>Modern EV chargers are smart devices. Through a companion app, most units offer:</p>
+
+        <ul>
+          <li><strong>Scheduled charging</strong> — set your charger to run during off-peak tariff hours (typically midnight to 5am) when electricity costs are significantly lower</li>
+          <li><strong>Energy monitoring</strong> — track how much energy you are using and what it costs</li>
+          <li><strong>Solar integration</strong> — some chargers can be set to use excess solar generation, further reducing costs</li>
+          <li><strong>Remote control</strong> — start, stop, and monitor charging from your phone</li>
+          <li><strong>Load management</strong> — automatically reduce charging speed when other high-demand appliances are running, preventing your supply from being overloaded</li>
+        </ul>
+
+        <p>Smart charging is not optional for new installations — it is a legal requirement under the 2021 regulations. All chargers we install meet this standard, and we can help you set up scheduled charging to make the most of your electricity tariff.</p>
+
+        <h2>Running Costs: Home Charging vs Petrol</h2>
+
+        <p>One of the main advantages of owning an EV is the significantly lower fuel cost. At typical domestic electricity rates, charging at home costs roughly 8 to 10 pence per mile. If you charge overnight on an EV-specific tariff — such as Octopus Go or Intelligent Octopus — this can drop to around 3 to 5 pence per mile.</p>
+
+        <p>By comparison, a petrol car averaging 40 miles per gallon costs approximately 16 to 20 pence per mile at current fuel prices. Over 10,000 miles per year, that is a saving of around £600 to £1,200 annually by charging at home, depending on your tariff.</p>
+
+        <p>Public rapid chargers are considerably more expensive — often 50 to 80 pence per kWh — so having a home charger means the vast majority of your charging happens at the lowest possible cost.</p>
+
+        <h2>What to Expect From the Installation</h2>
+
+        <p>A typical <a href="/services/ev-charger-installation/">home EV charger installation</a> takes between 2 and 4 hours, depending on the cable route and any additional work required. The process involves:</p>
+
+        <ul>
+          <li>An initial survey to assess your electrical supply and plan the installation</li>
+          <li>Running a dedicated cable from the consumer unit to the charger location</li>
+          <li>Mounting and connecting the charge unit</li>
+          <li>Full testing and commissioning</li>
+          <li>DNO notification and any applicable grant paperwork</li>
+          <li>A walkthrough of the app and <a href="/services/smart-home-installation/">smart charging features</a></li>
+        </ul>
+
+        <p>We aim to leave the installation clean and tidy, with cable routes concealed wherever possible. If any additional work is needed — such as a consumer unit upgrade — we will explain this clearly during the survey so there are no surprises on installation day.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/ev-charger-installation/">EV Charger Installation</a></li>
+            <li><a href="/services/consumer-unit-replacement/">Consumer Unit Replacement</a></li>
+            <li><a href="/services/smart-home-installation/">Smart Home Installation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Thinking About a Home EV Charger?"
+    description="We install home EV chargers across Essex and Suffolk. Get in touch for a free survey and quote — we handle everything from the consumer unit to the chargepoint."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="EV Charger Service"
+    secondaryHref="/services/ev-charger-installation/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

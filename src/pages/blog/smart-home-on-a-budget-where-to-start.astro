@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'Smart Home on a Budget: Where to Start';
+const description = 'A practical guide to building a smart home without overspending — from WiFi infrastructure and smart lighting to security cameras and voice assistants, with advice on what to prioritise first.';
+const publishDate = '2026-03-24';
+const category = 'Smart Home';
+const readingTime = '6 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>24 March 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>Smart home technology has become remarkably accessible over the past few years. You do not need to spend thousands upfront or commit to a whole-house system from day one. The most sensible approach is to start with a solid foundation, add the features that make the biggest difference to your daily life, and build from there over time.</p>
+
+        <p>Here is a practical, phased approach to creating a smart home without breaking the bank.</p>
+
+        <h2>Phase 1: Get Your WiFi Right</h2>
+
+        <p>Before you buy a single smart device, make sure your WiFi is reliable. Every smart device in your home depends on it, and a weak or inconsistent connection will make the entire experience frustrating. This is the single most important investment you can make.</p>
+
+        <h3>Mesh WiFi vs access points</h3>
+        <p>For most homes, a <a href="/services/home-wifi-systems/">mesh WiFi system</a> — such as those from TP-Link Deco, Ubiquiti, or similar — is the simplest way to get strong, consistent coverage throughout the property. Mesh systems use multiple units that communicate with each other to blanket your home in a single, seamless network.</p>
+
+        <p>For larger homes or those with thick walls, hardwired access points connected by <a href="/services/ethernet-wiring/">ethernet cable</a> provide even better performance. This is a more involved installation, but the results are significantly better — especially if you plan to add a lot of smart devices over time.</p>
+
+        <p>If your current router struggles to reach certain rooms, this is the first problem to solve. Everything else depends on it.</p>
+
+        <h2>Phase 2: Smart Lighting</h2>
+
+        <p>Lighting is where most people notice the biggest day-to-day improvement. Being able to dim lights, change colour temperature, set schedules, and control everything from your phone or voice transforms how your home feels.</p>
+
+        <h3>Smart bulbs vs smart switches</h3>
+        <p>There are two main approaches:</p>
+
+        <ul>
+          <li><strong>Smart bulbs</strong> — the simplest option. You replace individual bulbs with WiFi or Zigbee-enabled alternatives (such as Philips Hue or IKEA DIRIGERA). No wiring changes needed, and you can start with a single room. The downside: the physical wall switch must stay on at all times, which can confuse guests</li>
+          <li><strong>Smart switches</strong> — a more permanent solution. You replace the wall switch itself with a smart switch or install a smart relay module behind the existing switch plate. This keeps the physical switch working normally while adding smart control. However, most smart switches require a neutral wire at the switch position — which many older UK homes do not have</li>
+        </ul>
+
+        <p>If you are not sure whether your switches have a neutral wire, an electrician can check. If they do not, it can often be added as part of a <a href="/services/lighting-installation/">lighting upgrade</a> without a full rewire.</p>
+
+        <h3>Where to start</h3>
+        <p>Begin with the rooms you use most — the living room and bedroom are popular first choices. A few smart bulbs or a single smart switch can make a surprising difference. You can always expand to other rooms later.</p>
+
+        <h2>Phase 3: Voice Control</h2>
+
+        <p>A voice assistant — Amazon Alexa, Google Home, or Apple HomeKit — acts as the central interface for your smart home. Once your lighting is set up, adding voice control means you can adjust lights, set timers, and control other devices without reaching for your phone.</p>
+
+        <p>A basic smart speaker costs very little and integrates with the vast majority of smart home products. If you are unsure which ecosystem to choose, Amazon Alexa currently has the broadest device compatibility, while Apple HomeKit offers the strongest privacy protections.</p>
+
+        <p>You do not need a voice assistant to run a smart home, but most people find it becomes indispensable once they try it.</p>
+
+        <h2>Phase 4: Smart Heating</h2>
+
+        <p>Heating is typically the largest energy cost in a UK home, so smart heating control can deliver genuine savings. Options range from simple smart thermostats (like Hive, Nest, or Tado) to full radiator-level control with smart thermostatic radiator valves (TRVs).</p>
+
+        <p>A smart thermostat is a straightforward replacement for your existing programmer and thermostat. Most can be installed in under an hour and give you app control, scheduling, geofencing (so the heating turns off when you leave), and energy usage insights.</p>
+
+        <p>Smart TRVs take this further by allowing individual room temperature control — no more heating the spare bedroom to the same temperature as the living room. The upfront cost is higher, but the energy savings can be meaningful, particularly in larger homes.</p>
+
+        <h2>Phase 5: Security</h2>
+
+        <p>Smart security is another area where you can start small and build over time:</p>
+
+        <h3>Video doorbell</h3>
+        <p>A video doorbell (such as Ring, Google Nest, or Reolink) is one of the most practical smart home additions. You can see who is at the door from anywhere, receive motion alerts, and keep a record of activity. Most are battery-powered and easy to install without any wiring changes.</p>
+
+        <h3>Security cameras</h3>
+        <p>For more comprehensive coverage, outdoor <a href="/services/cctv-installation/">security cameras</a> can monitor your driveway, garden, and access points. WiFi cameras are simple to set up, but for the best reliability and image quality, wired PoE (Power over Ethernet) cameras connected to a network video recorder are the professional standard. This does require cabling, but the result is a system that does not depend on WiFi and records continuously.</p>
+
+        <h3>Smart locks and sensors</h3>
+        <p>Smart locks allow keyless entry and remote access control. Window and door sensors can alert you if something is opened unexpectedly. These are relatively inexpensive additions that round out a basic security setup.</p>
+
+        <h2>What Needs Professional Wiring vs Plug-and-Play</h2>
+
+        <p>One of the advantages of modern smart home technology is that much of it is designed for DIY installation. Here is a rough guide:</p>
+
+        <ul>
+          <li><strong>Plug-and-play (no electrician needed)</strong> — smart bulbs, smart plugs, smart speakers, video doorbells (battery), WiFi cameras, smart thermostats (in most cases), smart TRVs</li>
+          <li><strong>Professional installation recommended</strong> — smart switches (especially if neutral wire is needed), hardwired access points, <a href="/services/ethernet-wiring/">ethernet cabling</a>, wired CCTV systems, smart lighting circuits, outdoor power for cameras or garden lighting</li>
+        </ul>
+
+        <p>If you are planning any work that involves new wiring, dedicated circuits, or modifications to your electrical installation, a <a href="/services/smart-home-installation/">qualified installer</a> ensures the work is safe, compliant, and properly certified.</p>
+
+        <h2>Future-Proofing Tips</h2>
+
+        <p>As you build your smart home, a few decisions made early will save you effort later:</p>
+
+        <ul>
+          <li><strong>Pick an ecosystem and stick with it</strong> — mixing too many platforms creates complexity. Choose Alexa, Google, or Apple as your primary ecosystem and buy devices that work with it</li>
+          <li><strong>Consider Zigbee or Matter devices</strong> — these protocols communicate locally rather than depending entirely on cloud services, which means faster response times and better reliability</li>
+          <li><strong>Label your network</strong> — as you add devices, a well-organised WiFi network with a clear naming convention makes troubleshooting much easier</li>
+          <li><strong>Run ethernet where you can</strong> — even if you only run a couple of cables now, having wired backhaul for your mesh system or a connection to your TV and streaming box makes a noticeable difference</li>
+          <li><strong>Invest in the infrastructure first</strong> — good WiFi and proper wiring are the foundation. Gadgets come and go, but the infrastructure serves you for years</li>
+        </ul>
+
+        <h2>Getting Started</h2>
+
+        <p>The best smart home is one that is built gradually, based on what actually improves your life rather than what looks impressive on paper. Start with reliable WiFi, add smart lighting in the rooms you use most, and grow from there. You will quickly discover which features you value and which you do not need.</p>
+
+        <p>If you reach a point where you want professional wiring — whether that is ethernet drops, hardwired access points, smart switch installations, or a full CCTV system — we can help design and install a system that fits your home and your budget.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/smart-home-installation/">Smart Home Installation</a></li>
+            <li><a href="/services/home-wifi-systems/">Home WiFi Systems</a></li>
+            <li><a href="/services/ethernet-wiring/">Ethernet & Structured Cabling</a></li>
+            <li><a href="/services/lighting-installation/">Lighting Installation</a></li>
+            <li><a href="/services/cctv-installation/">CCTV Installation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Ready to Make Your Home Smarter?"
+    description="Whether you need better WiFi, smart lighting wiring, or a full smart home plan, we can help. Get in touch to discuss what would work best for your home."
+    primaryText="Discuss Your Project"
+    primaryHref="/contact/"
+    secondaryText="Smart Home Services"
+    secondaryHref="/services/smart-home-installation/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'What Is Part P and Why Does It Matter?';
+const description = 'A clear explanation of Part P of the Building Regulations — what electrical work is notifiable, what homeowners can do themselves, and why compliance matters for safety, insurance, and house sales.';
+const publishDate = '2026-03-22';
+const category = 'Compliance';
+const readingTime = '5 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>22 March 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>Part P is one of those regulations that most homeowners only hear about when something goes wrong — or when they are trying to sell their house and discover that previous electrical work was never signed off. Understanding it does not require an engineering degree, but knowing the basics can save you significant time, money, and stress.</p>
+
+        <h2>What Is Part P?</h2>
+
+        <p>Part P is the section of the Building Regulations for England and Wales that deals with electrical safety in domestic properties. Introduced in 2005, it exists to ensure that electrical work in homes is designed, installed, and inspected to a standard that protects the occupants from fire and electric shock.</p>
+
+        <p>In practical terms, Part P means that certain types of electrical work in your home must either be carried out by a qualified electrician registered with a competent person scheme, or be inspected and approved by your local Building Control body.</p>
+
+        <h2>What Work Is Notifiable?</h2>
+
+        <p>Under Part P, "notifiable" work is any electrical installation work that must be reported to Building Control. This includes:</p>
+
+        <ul>
+          <li><strong>Installing a new circuit</strong> — for example, adding a dedicated circuit for a cooker, shower, or <a href="/services/ev-charger-installation/">EV charger</a></li>
+          <li><strong><a href="/services/consumer-unit-replacement/">Consumer unit replacement</a></strong> — changing the fuse box is always notifiable, regardless of the circumstances</li>
+          <li><strong><a href="/services/rewires/">Rewiring</a></strong> — any full or partial rewire of a property</li>
+          <li><strong>Work in special locations</strong> — any electrical work in bathrooms, kitchens (within certain zones), and outdoors, including garden lighting and outbuilding supplies</li>
+          <li><strong>Additions to existing circuits in special locations</strong> — for example, adding a socket in a bathroom or outdoor area</li>
+        </ul>
+
+        <h2>What Work Is Not Notifiable?</h2>
+
+        <p>Some minor electrical work does not require notification, including:</p>
+
+        <ul>
+          <li>Replacing sockets, switches, or light fittings on a like-for-like basis (provided it is not in a bathroom or other special location)</li>
+          <li>Replacing a damaged cable for a single circuit</li>
+          <li>Adding fused spurs to an existing circuit (outside special locations)</li>
+        </ul>
+
+        <p>However, even non-notifiable work must still comply with BS 7671, the IET Wiring Regulations. The fact that it does not need to be reported does not mean it can be done to a lower standard.</p>
+
+        <h2>What Can Homeowners Do Themselves?</h2>
+
+        <p>There is no law preventing a homeowner from doing their own electrical work. However, if the work is notifiable, a homeowner who is not registered with a competent person scheme must apply to Building Control before starting the work, pay an inspection fee, and have the work inspected and signed off on completion.</p>
+
+        <p>In practice, this is often more expensive and time-consuming than hiring a registered electrician in the first place. A registered electrician can self-certify their own work, which means they handle the notification and issue the necessary certificates without involving Building Control directly.</p>
+
+        <p>For non-notifiable work, homeowners are free to carry out minor repairs and replacements — but if you are not confident in what you are doing, it is always safer to call a professional. Poorly executed electrical work creates real risks.</p>
+
+        <h2>Why Does Part P Matter for House Sales?</h2>
+
+        <p>When you sell a property, your solicitor will typically ask for Building Regulations completion certificates for any electrical work carried out since 2005. If notifiable work was done without proper certification, it can cause problems:</p>
+
+        <ul>
+          <li><strong>Buyers may request a discount</strong> — to cover the cost of having the work inspected retrospectively</li>
+          <li><strong>Mortgage lenders may raise concerns</strong> — some lenders require evidence that electrical work complies with regulations</li>
+          <li><strong>Indemnity insurance may be needed</strong> — this covers the buyer against the risk of enforcement action, but it does not address whether the work itself is safe</li>
+        </ul>
+
+        <p>The simplest way to avoid these complications is to ensure that all notifiable work is carried out by a registered electrician who provides the correct certification at the time.</p>
+
+        <h2>Why Does It Matter for Insurance?</h2>
+
+        <p>Home insurance policies generally require that your property is maintained in a reasonable condition, including the electrical installation. If a fire or injury results from electrical work that was not carried out to the required standard — or was not properly certified — your insurer may refuse to pay a claim.</p>
+
+        <p>Having an up-to-date <a href="/services/eicr-certificates/">EICR (Electrical Installation Condition Report)</a> and certificates for any work carried out provides a clear paper trail that your installation has been professionally inspected and meets current standards.</p>
+
+        <h2>How to Check If Previous Work Was Signed Off</h2>
+
+        <p>If you are unsure whether electrical work in your property was properly certified, there are several steps you can take:</p>
+
+        <ul>
+          <li><strong>Check your records</strong> — you should have received an Electrical Installation Certificate or a Minor Electrical Installation Works Certificate for any work carried out by a registered electrician</li>
+          <li><strong>Contact your local Building Control</strong> — they hold records of all building regulations applications and completions for your address</li>
+          <li><strong>Check the competent person register</strong> — schemes like NICEIC, NAPIT, and ELECSA maintain records of work notified by their registered members</li>
+          <li><strong>Commission an EICR</strong> — while this does not retrospectively certify previous work, it tells you whether the current state of the installation is satisfactory</li>
+        </ul>
+
+        <h2>What Happens If Work Is Not Compliant?</h2>
+
+        <p>If notifiable work was carried out without proper notification, the local authority can technically require you to have the work inspected — and if it does not meet standards, to have it altered or removed. In practice, enforcement action is uncommon for domestic properties, but the more likely consequences are the complications around house sales and insurance described above.</p>
+
+        <p>If you discover that previous work in your home was not signed off, the best course of action is to have an EICR carried out. This will identify any safety issues with the installation as it stands, and any necessary remedial work can be completed and properly certified.</p>
+
+        <h2>The Simple Summary</h2>
+
+        <p>Part P exists to keep people safe. For any significant electrical work in your home — new circuits, consumer unit replacements, rewiring, or work in bathrooms and kitchens — use a qualified electrician who is registered with a competent person scheme. They will ensure the work meets the required standards and provide the certification you need for your records, your insurance, and any future sale of the property.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/eicr-certificates/">EICR Certificates</a></li>
+            <li><a href="/services/consumer-unit-replacement/">Consumer Unit Replacement</a></li>
+            <li><a href="/services/rewires/">Rewiring</a></li>
+            <li><a href="/services/ev-charger-installation/">EV Charger Installation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Need Certified Electrical Work?"
+    description="All our work is carried out to BS 7671 and certified through a competent person scheme. No paperwork headaches, no compliance concerns."
+    primaryText="Get in Touch"
+    primaryHref="/contact/"
+    secondaryText="View Our Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

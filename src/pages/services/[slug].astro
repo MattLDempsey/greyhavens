@@ -18,6 +18,13 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 const related = getRelatedServices(service.relatedServices);
+
+const blogPosts = [
+  { title: 'Do I Need a Consumer Unit Upgrade?', href: '/blog/do-i-need-a-consumer-unit-upgrade/', services: ['consumer-unit-replacement', 'rewires', 'eicr-certificates', 'fault-finding'] },
+  { title: 'How Much Does an EICR Cost?', href: '/blog/how-much-does-an-eicr-cost/', services: ['eicr-certificates', 'fault-finding', 'consumer-unit-replacement', 'rewires'] },
+  { title: 'Smart Home Wiring for New Builds', href: '/blog/smart-home-wiring-new-builds/', services: ['smart-home-installation', 'ethernet-wiring', 'home-cinema-wiring', 'home-wifi-systems', 'cctv-installation', 'lighting-installation', 'ev-charger-installation'] },
+];
+const relatedPosts = blogPosts.filter(post => post.services.includes(service.slug));
 ---
 
 <BaseLayout title={service.seoTitle} description={service.seoDescription}>
@@ -129,6 +136,17 @@ const related = getRelatedServices(service.relatedServices);
               <ul class="sidebar-links">
                 {related.map(r => (
                   <li><a href={`/services/${r.slug}/`}>{r.name}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {relatedPosts.length > 0 && (
+            <div class="sidebar-card card">
+              <h3>Related Articles</h3>
+              <ul class="sidebar-links">
+                {relatedPosts.map(post => (
+                  <li><a href={post.href}>{post.title}</a></li>
                 ))}
               </ul>
             </div>
