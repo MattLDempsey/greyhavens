@@ -4,7 +4,6 @@ import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import LocationCard from '../components/LocationCard.astro';
-import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import CTABand from '../components/CTABand.astro';
 import { getServicesByCategory } from '../data/services';
@@ -109,9 +108,6 @@ const smartHomeServices = getServicesByCategory('smart-home');
         <h2>Areas We Cover</h2>
         <p class="text-silver">We provide electrical and smart home services across Essex and Suffolk, covering these key areas and surrounding villages.</p>
       </div>
-      <div class="areas-map">
-        <ServiceAreaMap />
-      </div>
       <div class="areas-locations">
         {locations.map(location => (
           <LocationCard
@@ -198,13 +194,6 @@ const smartHomeServices = getServicesByCategory('smart-home');
   }
 
   /* Areas We Cover layout */
-  .areas-map {
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .areas-locations {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
