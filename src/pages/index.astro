@@ -109,19 +109,17 @@ const smartHomeServices = getServicesByCategory('smart-home');
         <h2>Areas We Cover</h2>
         <p class="text-silver">We provide electrical and smart home services across Essex and Suffolk, covering these key areas and surrounding villages.</p>
       </div>
-      <div class="areas-layout">
-        <div class="areas-map">
-          <ServiceAreaMap />
-        </div>
-        <div class="areas-locations">
-          {locations.map(location => (
-            <LocationCard
-              name={location.name}
-              slug={location.slug}
-              county={location.county}
-            />
-          ))}
-        </div>
+      <div class="areas-map">
+        <ServiceAreaMap />
+      </div>
+      <div class="areas-locations">
+        {locations.map(location => (
+          <LocationCard
+            name={location.name}
+            slug={location.slug}
+            county={location.county}
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -200,40 +198,26 @@ const smartHomeServices = getServicesByCategory('smart-home');
   }
 
   /* Areas We Cover layout */
-  .areas-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
   .areas-map {
-    position: sticky;
-    top: 2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .areas-locations {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
   }
 
-  @media (max-width: 992px) {
-    .areas-layout {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .areas-map {
-      position: static;
-    }
-
+  @media (max-width: 768px) {
     .areas-locations {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 480px) {
     .areas-locations {
       grid-template-columns: 1fr;
     }

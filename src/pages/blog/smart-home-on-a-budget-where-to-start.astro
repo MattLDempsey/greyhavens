@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import CTABand from '../../components/CTABand.astro';
+import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 
 const title = 'Smart Home on a Budget: Where to Start';
 const description = 'A practical guide to building a smart home without overspending — from WiFi infrastructure and smart lighting to security cameras and voice assistants, with advice on what to prioritise first.';
@@ -14,6 +15,14 @@ const readingTime = '6 min read';
   title={`${title} | Grey Havens Blog`}
   description={description}
 >
+  <ArticleSchema
+    slot="schema"
+    title={title}
+    description={description}
+    datePublished={publishDate}
+    url="/blog/smart-home-on-a-budget-where-to-start/"
+    category={category}
+  />
   <Hero
     compact
     subtitle="Blog"

@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'Power Surge Protection for Your Home';
+const description = 'What causes power surges, the damage they can do, how Type 1, 2, and 3 SPDs work, BS 7671 requirements, and why surge protection matters for modern homes with smart technology.';
+const publishDate = '2026-01-16';
+const category = 'Electrical';
+const readingTime = '5 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>16 January 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>A power surge is a brief but significant spike in the voltage flowing through your electrical system. It can last just a few microseconds, but that is enough to damage or destroy sensitive electronic equipment. In a modern home filled with computers, smart devices, and connected appliances, surge protection is no longer optional — it is a fundamental part of a safe electrical installation.</p>
+
+        <p>Here is what causes surges, what they can damage, and how to protect your home effectively.</p>
+
+        <h2>What Causes Power Surges?</h2>
+
+        <p>Power surges come from several sources, some external and some within your own home.</p>
+
+        <h3>Lightning</h3>
+        <p>A lightning strike near a power line can send an enormous voltage spike through the grid and into your home. While direct strikes are rare, nearby strikes are common during storms and can induce surges significant enough to destroy unprotected equipment.</p>
+
+        <h3>Grid fluctuations</h3>
+        <p>The electricity grid is not perfectly stable. Switching events at substations, faults on the network, and the restoration of power after an outage can all cause transient voltage spikes. These are typically smaller than lightning-induced surges but happen more frequently.</p>
+
+        <h3>Internal switching</h3>
+        <p>Perhaps surprisingly, the most common source of surges is within your own home. Large appliances with motors — such as air conditioning units, refrigerators, washing machines, and workshop equipment — create small voltage spikes each time they switch on or off. Individually, these are minor, but over time they can degrade the internal components of sensitive electronics, shortening their lifespan.</p>
+
+        <h2>What Damage Can Surges Cause?</h2>
+
+        <p>The impact of a surge depends on its magnitude and duration, but the effects range from annoying to devastating:</p>
+
+        <ul>
+          <li><strong>Immediate destruction</strong> — a large surge can burn out circuit boards, power supplies, and components instantly, rendering equipment unusable</li>
+          <li><strong>Gradual degradation</strong> — smaller, repeated surges weaken internal components over time, leading to premature failure and unexplained malfunctions</li>
+          <li><strong>Data loss</strong> — computers and storage devices can lose data or suffer corruption during a surge event</li>
+          <li><strong>Smart home damage</strong> — connected devices such as smart speakers, hubs, cameras, and lighting controllers are particularly vulnerable due to their always-on nature and sensitive electronics</li>
+        </ul>
+
+        <p>The cost of replacing multiple devices after a surge event can easily run into thousands of pounds — far more than the cost of proper protection.</p>
+
+        <h2>Types of Surge Protection Devices (SPDs)</h2>
+
+        <p>Surge Protection Devices are categorised into three types, each designed for a different position in the electrical system.</p>
+
+        <h3>Type 1 SPDs</h3>
+        <p>Type 1 devices are installed at the point where the electricity supply enters the building, typically at or before the meter. They are designed to handle the most severe surges — including those caused by nearby lightning strikes. Type 1 SPDs are usually required where the building has a lightning protection system or is fed by overhead power lines in an exposed location.</p>
+
+        <h3>Type 2 SPDs</h3>
+        <p>Type 2 devices are installed within the <a href="/services/consumer-unit-replacement/">consumer unit</a> and provide the main surge protection for the property. They handle both external surges from the grid and internal surges from appliance switching. A Type 2 SPD is the most common form of whole-house surge protection and is now required in many installations under the current Wiring Regulations.</p>
+
+        <h3>Type 3 SPDs</h3>
+        <p>Type 3 devices are the plug-in surge protectors you can buy from any electronics retailer. They are installed at the point of use — typically a multi-socket strip near your computer or entertainment system. They provide a final layer of protection but are not a substitute for Type 1 or Type 2 protection upstream. They work best as part of a layered approach, catching any residual surge that gets past the consumer unit SPD.</p>
+
+        <h2>BS 7671 and the 18th Edition Requirements</h2>
+
+        <p>The 18th Edition of the IET Wiring Regulations (BS 7671:2018, as amended) introduced a significant change regarding surge protection. Under Regulation 443.4, a risk assessment must now be carried out for every new or significantly altered electrical installation to determine whether surge protection is required.</p>
+
+        <p>In practice, surge protection is required unless the risk assessment determines that the consequences of a surge would not affect human life, public services, commercial or industrial activity, or the loss of valuable equipment and data. For most modern homes — particularly those with smart home systems, home offices, or high-value electronics — the risk assessment will conclude that surge protection should be installed.</p>
+
+        <p>This means that if you are having a new consumer unit fitted, a rewire carried out, or significant electrical work done, your electrician should discuss surge protection as part of the installation.</p>
+
+        <h2>Whole-House Protection via the Consumer Unit</h2>
+
+        <p>The most effective approach for domestic properties is a Type 2 SPD installed within the consumer unit. Modern consumer units often have a dedicated module position for an SPD, making installation straightforward.</p>
+
+        <p>The SPD sits between the incoming supply and your circuits. When it detects a voltage spike above normal levels, it diverts the excess energy safely to earth, preventing it from reaching your equipment. A green indicator light confirms the device is functioning, and it needs to be replaced if it reaches the end of its service life — which it will indicate.</p>
+
+        <p>The cost of adding a Type 2 SPD during a consumer unit installation or upgrade is modest — typically in the range of £80 to £150 for the device itself, plus fitting. Given the value of the equipment it protects, it represents excellent value.</p>
+
+        <h2>Why Smart Homes Are Particularly Vulnerable</h2>
+
+        <p>A <a href="/services/smart-home-installation/">smart home</a> is, by definition, full of connected electronic devices — lighting controllers, smart speakers, security cameras, network switches, WiFi access points, and home automation hubs. These devices are typically always on, always connected, and contain sensitive electronics that are vulnerable to voltage spikes.</p>
+
+        <p>Unlike a traditional lamp or a kettle, which can often survive a minor surge without issue, a smart lighting controller or a network switch can be permanently damaged by a relatively small transient. And because smart home systems are interconnected, damage to one component can affect the functionality of the entire system.</p>
+
+        <p>If you have invested in a smart home setup, surge protection is not just sensible — it is essential to protect that investment.</p>
+
+        <h2>Plug-In Surge Protectors</h2>
+
+        <p>For equipment that is particularly valuable or sensitive — such as a home office computer, a home cinema system, or a network rack — a plug-in Type 3 surge protector provides an additional layer of defence.</p>
+
+        <p>Not all power strips are surge protectors. Look for devices that specifically state surge protection, carry a joule rating (higher is better — 2000J or above is reasonable for home equipment), and ideally include indicator lights to confirm the protection is still active. Surge protectors have a finite lifespan — once they have absorbed enough energy, the protection element is depleted, and the device needs replacing.</p>
+
+        <h2>Insurance Implications</h2>
+
+        <p>Many home insurance policies cover damage from power surges, but claims can be complicated. Insurers may ask whether adequate protection was in place, and some policies exclude damage to equipment that was not protected by a surge protector. Having a properly installed Type 2 SPD at the consumer unit — documented in your electrical certificate — demonstrates that reasonable precautions were in place, which can strengthen any claim.</p>
+
+        <p>It is worth reviewing your home insurance policy to understand what is and is not covered, and to factor the cost of surge protection into your overall approach to protecting your home and its contents.</p>
+
+        <h2>Taking Action</h2>
+
+        <p>If your home does not currently have surge protection at the consumer unit, it is worth considering — particularly if you have a <a href="/services/fault-finding/">smart home system</a>, a home office, or high-value electronics. It can often be added to an existing consumer unit without a full replacement, depending on the unit type and available space.</p>
+
+        <p>If you are having any significant electrical work carried out — a consumer unit upgrade, a rewire, or new circuit installations — surge protection should be part of the conversation. It is a small addition that provides significant peace of mind.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/consumer-unit-replacement/">Consumer Unit Replacement</a></li>
+            <li><a href="/services/smart-home-installation/">Smart Home Installation</a></li>
+            <li><a href="/services/fault-finding/">Fault Finding & Diagnosis</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Protect Your Home from Power Surges"
+    description="We install surge protection devices as part of consumer unit upgrades and new installations. Free, no-obligation quotes for all planned work."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="View Electrical Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

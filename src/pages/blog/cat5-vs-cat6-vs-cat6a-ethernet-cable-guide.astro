@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import CTABand from '../../components/CTABand.astro';
+import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 
 const title = 'Cat5 vs Cat6 vs Cat6a: Which Ethernet Cable Do You Need?';
 const description = 'A comparison of Cat5e, Cat6, and Cat6a ethernet cables — speeds, shielding, costs, and which cable type is best for home and commercial network installations.';
@@ -14,6 +15,14 @@ const readingTime = '5 min read';
   title={`${title} | Grey Havens Blog`}
   description={description}
 >
+  <ArticleSchema
+    slot="schema"
+    title={title}
+    description={description}
+    datePublished={publishDate}
+    url="/blog/cat5-vs-cat6-vs-cat6a-ethernet-cable-guide/"
+    category={category}
+  />
   <Hero
     compact
     subtitle="Blog"

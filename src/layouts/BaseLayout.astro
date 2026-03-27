@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileCTA from '../components/MobileCTA.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
 import '../styles/global.css';
 
@@ -51,8 +52,15 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.jpg`;
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImg} />
 
-  <!-- Favicon placeholder -->
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="Grey Havens Blog" href="/rss.xml" />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#2B2E34" />
 
   <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,5 +78,15 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.jpg`;
   </main>
   <Footer />
   <MobileCTA />
+  <CookieConsent />
+  <script is:inline>
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'contact', { event_category: 'Phone', event_label: 'Phone Click' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import LocationCard from '../../components/LocationCard.astro';
+import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import CTABand from '../../components/CTABand.astro';
 import { locations } from '../../data/locations';
 ---
@@ -20,6 +21,9 @@ import { locations } from '../../data/locations';
 
   <section class="section">
     <div class="container">
+      <div class="locations-map">
+        <ServiceAreaMap />
+      </div>
       <div class="grid grid--3">
         {locations.map(location => (
           <LocationCard
@@ -31,6 +35,13 @@ import { locations } from '../../data/locations';
       </div>
     </div>
   </section>
+
+<style>
+  .locations-map {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+</style>
 
   <section class="section section--dark">
     <div class="container container--narrow text-center">

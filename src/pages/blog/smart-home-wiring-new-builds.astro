@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import CTABand from '../../components/CTABand.astro';
+import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 
 const title = 'Planning Smart Home Wiring for New Builds and Renovations';
 const description = 'A practical guide to planning ethernet, WiFi, smart lighting, and future-proof cabling during a new build or renovation — from structured wiring to access points.';
@@ -14,6 +15,14 @@ const readingTime = '7 min read';
   title={`${title} | Grey Havens Blog`}
   description={description}
 >
+  <ArticleSchema
+    slot="schema"
+    title={title}
+    description={description}
+    datePublished={publishDate}
+    url="/blog/smart-home-wiring-new-builds/"
+    category={category}
+  />
   <Hero
     compact
     subtitle="Blog"

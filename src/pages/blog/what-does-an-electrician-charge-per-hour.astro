@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import CTABand from '../../components/CTABand.astro';
+import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 
 const title = 'What Does an Electrician Charge Per Hour in Essex?';
 const description = 'Typical electrician hourly rates and day rates in Essex and Suffolk, what affects pricing, why some jobs are fixed price, and how to get a fair quote.';
@@ -14,6 +15,14 @@ const readingTime = '5 min read';
   title={`${title} | Grey Havens Blog`}
   description={description}
 >
+  <ArticleSchema
+    slot="schema"
+    title={title}
+    description={description}
+    datePublished={publishDate}
+    url="/blog/what-does-an-electrician-charge-per-hour/"
+    category={category}
+  />
   <Hero
     compact
     subtitle="Blog"

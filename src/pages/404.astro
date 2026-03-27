@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found | Grey Havens" description="The page you're looking for doesn't exist or has been moved.">
+  <section class="not-found">
+    <div class="not-found__overlay"></div>
+    <div class="not-found__content container">
+      <span class="not-found__label">404</span>
+      <h1 class="not-found__title">Page Not Found</h1>
+      <p class="not-found__desc">The page you're looking for doesn't exist or has been moved.</p>
+      <hr class="gold-line gold-line--left" />
+      <nav class="not-found__nav" aria-label="Helpful links">
+        <a href="/">Homepage</a>
+        <a href="/services/">Services</a>
+        <a href="/locations/">Locations</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <a href="/contact/" class="btn btn--primary btn--large not-found__cta">Request a Quote</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    padding: 8rem 0 6rem;
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-black) 60%, #1f2127 100%);
+    overflow: hidden;
+  }
+
+  .not-found__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(198, 168, 106, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(75, 80, 87, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .not-found__content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+  }
+
+  .not-found__label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .not-found__title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  .not-found__desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-silver);
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
+
+  .not-found__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .not-found__nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-silver-light);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .not-found__nav a:hover {
+    color: var(--color-gold);
+  }
+
+  .not-found__cta {
+    margin-top: 0;
+  }
+
+  @media (max-width: 640px) {
+    .not-found {
+      padding: 7rem 0 4rem;
+      min-height: 70vh;
+    }
+
+    .not-found__nav {
+      gap: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'Garage and Workshop Electrical Installation';
+const description = 'Everything you need to know about garage and workshop electrics — separate supply vs house extension, SWA cable, consumer units, lighting, power circuits, EV charger prep, and Part P requirements.';
+const publishDate = '2026-01-22';
+const category = 'Electrical';
+const readingTime = '6 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>22 January 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>Whether you use your garage as a workshop, a home gym, a studio, or simply want proper lighting and power for everyday use, getting the electrical installation right makes all the difference. A garage with a single bare bulb and an extension lead trailing from the house is neither safe nor practical — and it almost certainly does not comply with current regulations.</p>
+
+        <p>Here is what is involved in setting up a proper electrical supply to a garage or outbuilding, and what you need to consider.</p>
+
+        <h2>Separate Supply vs Extension from the House</h2>
+
+        <p>The first question is how to get power to the garage. There are two main approaches.</p>
+
+        <h3>Extending from the house</h3>
+        <p>For a detached garage, the most common method is to run a dedicated supply from the house's consumer unit to a small consumer unit in the garage. This involves running a cable — typically underground — from the house to the outbuilding. It is the most cost-effective approach for most domestic garages.</p>
+
+        <h3>Separate supply</h3>
+        <p>In some cases, particularly for larger workshops or commercial use, a separate supply from the electricity distributor may be more appropriate. This is less common for typical domestic garages but may be necessary if the existing house supply does not have sufficient capacity for the intended use.</p>
+
+        <h2>Part P and Outbuildings</h2>
+
+        <p>Electrical work in outbuildings — including garages, workshops, sheds, and garden offices — falls under Part P of the Building Regulations. This means it is notifiable work that must be carried out by a qualified electrician registered with a competent person scheme, or alternatively, approved by your local building control before work begins.</p>
+
+        <p>This applies to new circuits, new consumer units, and any work involving running a supply from the house to a separate building. It is not something you can legally do yourself unless you go through the building control notification route, which is more cumbersome and expensive than using a registered electrician.</p>
+
+        <h2>SWA Cable for Underground Runs</h2>
+
+        <p>When running a supply from the house to a detached garage, Steel Wire Armoured (SWA) cable is the standard choice. SWA cable has a tough steel armour layer that protects it from physical damage, making it suitable for direct burial underground.</p>
+
+        <p>The cable is typically laid in a trench at a minimum depth of 500mm (or 600mm under a driveway or area subject to vehicle traffic), and is bedded on sand with a warning tape laid above it. The cable size depends on the distance and the electrical load — for a typical domestic garage, 6mm or 10mm SWA is common, but your electrician will calculate the correct size based on your specific requirements.</p>
+
+        <p>Where the cable enters and exits the buildings, it needs proper glands, and the armour must be correctly bonded to earth. This is a detail that is sometimes overlooked in DIY attempts, but it is essential for safety.</p>
+
+        <h2>Consumer Unit in the Garage</h2>
+
+        <p>A properly installed garage should have its own <a href="/services/consumer-unit-replacement/">consumer unit</a> — a small distribution board that provides RCD and MCB protection for the garage circuits. This means a fault in the garage does not trip the circuits in the house, and you can isolate the garage supply independently if needed.</p>
+
+        <p>A typical domestic garage consumer unit might have four to six ways, covering lighting, socket circuits, and any dedicated circuits for specific equipment. For a workshop with heavier demands, a larger unit may be necessary.</p>
+
+        <h3>RCD protection</h3>
+        <p>All circuits in a garage or outbuilding must be protected by RCDs. This is a mandatory requirement under the current Wiring Regulations. Given that garages often have concrete floors (which are conductive) and may be damp, the risk of electric shock is higher than in the main house, making RCD protection particularly important.</p>
+
+        <h2>Lighting</h2>
+
+        <p>Good <a href="/services/lighting-installation/">lighting</a> transforms a garage from a dark, unusable space into somewhere you can actually work.</p>
+
+        <h3>LED vs fluorescent</h3>
+        <p>LED battens and panels have largely replaced fluorescent fittings in garages. They start instantly (no flickering warm-up period), work reliably in cold temperatures, use less energy, and last significantly longer. For a standard single garage, two or three LED battens provide excellent general lighting.</p>
+
+        <h3>Task lighting</h3>
+        <p>If you use the garage as a workshop, additional task lighting over workbenches makes a significant difference. LED strip lights under shelving, or adjustable spotlights directed at the work area, supplement the general lighting and reduce shadows.</p>
+
+        <h3>External lighting</h3>
+        <p>A PIR-activated light outside the garage door improves security and convenience. It should be rated IP65 or higher for outdoor use and can be wired from the garage consumer unit.</p>
+
+        <h2>Socket Circuits</h2>
+
+        <p>The number and type of sockets you need depends on how you use the space.</p>
+
+        <h3>General use</h3>
+        <p>For a garage used for storage and occasional DIY, a ring main with three or four double sockets is typically sufficient. Position sockets above workbench height (around 1100mm) for easy access.</p>
+
+        <h3>Workshop use</h3>
+        <p>A workshop may need more sockets and potentially higher-rated supplies. Equipment such as welders, compressors, or large power tools may require a dedicated 32A circuit rather than a standard 13A socket. If you use three-phase equipment, this needs to be discussed with your electrician at the planning stage, as it may require a supply upgrade.</p>
+
+        <h2>EV Charger Preparation</h2>
+
+        <p>If you park in the garage or on the driveway adjacent to it, preparing for an <a href="/services/ev-charger-installation/">EV charger</a> during the garage electrical installation is extremely cost-effective. Running the necessary cable and installing a suitable circuit at the same time as the main garage supply adds relatively little to the cost, compared to doing it as a separate project later.</p>
+
+        <p>Even if you do not have an electric vehicle yet, installing the cabling and a dedicated circuit to a suitable location on the garage wall means a charger can be fitted quickly and easily when the time comes.</p>
+
+        <h2>Heating Options</h2>
+
+        <p>Garages are rarely insulated to the same standard as the main house, which means they can be very cold in winter. If you use the space regularly, some form of heating may be necessary.</p>
+
+        <p>Electric options include panel heaters, infrared heaters, and fan heaters. Infrared heaters are particularly effective in garages because they heat objects and people directly rather than trying to warm the air — which is inefficient in a draughty space. Whatever heating you choose, it needs to be on a suitable circuit and positioned safely away from flammable materials.</p>
+
+        <h2>Ventilation and Safety</h2>
+
+        <p>If your garage is used as a workshop, ventilation is important — particularly if you are using paints, solvents, adhesives, or generating dust. An extractor fan on a dedicated spur improves air quality and reduces moisture buildup.</p>
+
+        <p>From a safety perspective, consider:</p>
+
+        <ul>
+          <li><strong>IP-rated fittings</strong> — garages can be damp, so light fittings and sockets should be appropriately rated (IP44 minimum for areas that may be exposed to splashes)</li>
+          <li><strong>Cable protection</strong> — cables should be run in conduit or trunking where they are exposed, to protect against physical damage</li>
+          <li><strong>Emergency isolation</strong> — the consumer unit should be easily accessible, and a main switch clearly labelled, so the supply can be cut quickly in an emergency</li>
+          <li><strong>Fire safety</strong> — keep the consumer unit area clear of flammable materials, and consider a fire-resistant enclosure if the garage is used for storage of combustible items</li>
+        </ul>
+
+        <h2>Planning Your Garage Installation</h2>
+
+        <p>The best approach is to think about what you need the space to do — now and in the future — and plan the electrical installation accordingly. A <a href="/services/fault-finding/">consultation with a qualified electrician</a> at the outset ensures the supply is correctly sized, the circuits are appropriate, and everything is installed safely and to current standards.</p>
+
+        <p>Whether it is a simple lighting and socket installation or a fully equipped workshop with dedicated power circuits and EV charging, getting it right from the start means you can use the space confidently and safely for years to come.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/consumer-unit-replacement/">Consumer Unit Replacement</a></li>
+            <li><a href="/services/lighting-installation/">Lighting Installation</a></li>
+            <li><a href="/services/ev-charger-installation/">EV Charger Installation</a></li>
+            <li><a href="/services/fault-finding/">Fault Finding & Diagnosis</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Need Power to Your Garage or Workshop?"
+    description="From basic lighting to fully equipped workshops, we install safe, compliant electrical systems in garages and outbuildings. Free, no-obligation quotes."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="View Electrical Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  datePublished: string;
+  url: string;
+  category: string;
+}
+
+const { title, description, datePublished, url, category } = Astro.props;
+const siteUrl = 'https://thegreyhavens.co.uk';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": datePublished,
+  "dateModified": datePublished,
+  "url": `${siteUrl}${url}`,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${siteUrl}${url}`
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Grey Havens"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Grey Havens",
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/images/logo.png`
+    }
+  },
+  "articleSection": category,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

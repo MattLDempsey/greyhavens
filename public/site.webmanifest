@@ -1,0 +1,15 @@
+{
+  "name": "Grey Havens",
+  "short_name": "Grey Havens",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "theme_color": "#2B2E34",
+  "background_color": "#2B2E34",
+  "display": "standalone",
+  "start_url": "/"
+}

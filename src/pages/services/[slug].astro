@@ -33,6 +33,11 @@ const blogPosts = [
   { title: 'Cat5 vs Cat6 vs Cat6a: Which Ethernet Cable Do You Need?', href: '/blog/cat5-vs-cat6-vs-cat6a-ethernet-cable-guide/', services: ['ethernet-wiring', 'home-wifi-systems', 'home-cinema-wiring'] },
   { title: 'How to Improve WiFi in an Old House', href: '/blog/how-to-improve-wifi-in-an-old-house/', services: ['home-wifi-systems', 'ethernet-wiring', 'smart-home-installation'] },
   { title: 'What Does an Electrician Charge Per Hour in Essex?', href: '/blog/what-does-an-electrician-charge-per-hour/', services: ['fault-finding', 'consumer-unit-replacement', 'rewires', 'lighting-installation'] },
+  { title: 'Smart Home Security Systems: A Complete Guide', href: '/blog/smart-home-security-systems-guide/', services: ['cctv-installation', 'smart-home-installation', 'ethernet-wiring'] },
+  { title: 'Kitchen Electrical Requirements for Renovations', href: '/blog/kitchen-electrical-requirements-renovations/', services: ['rewires', 'lighting-installation', 'consumer-unit-replacement', 'fault-finding'] },
+  { title: 'Home Office Lighting and Power Setup', href: '/blog/home-office-lighting-and-power-setup/', services: ['lighting-installation', 'ethernet-wiring', 'home-wifi-systems', 'fault-finding'] },
+  { title: 'Garage and Workshop Electrical Installation', href: '/blog/garage-workshop-electrical-installation/', services: ['consumer-unit-replacement', 'lighting-installation', 'ev-charger-installation', 'fault-finding'] },
+  { title: 'Power Surge Protection for Your Home', href: '/blog/power-surge-protection-for-your-home/', services: ['consumer-unit-replacement', 'smart-home-installation', 'fault-finding'] },
 ];
 const relatedPosts = blogPosts.filter(post => post.services.includes(service.slug));
 ---
@@ -59,7 +64,7 @@ const relatedPosts = blogPosts.filter(post => post.services.includes(service.slu
     subtitle={service.category === 'electrical' ? 'Electrical Services' : service.category === 'compliance' ? 'Property & Compliance' : 'Smart Home & Technology'}
     title={service.name}
     description={service.shortDescription}
-    primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
+    primaryCta={{ text: 'Request a Quote', href: `/contact/?service=${encodeURIComponent(service.name)}` }}
     secondaryCta={{ text: 'Call 01206 000 000', href: 'tel:01206000000' }}
   />
 
@@ -123,7 +128,7 @@ const relatedPosts = blogPosts.filter(post => post.services.includes(service.slu
           <div class="sidebar-card card">
             <h3>Request a Quote</h3>
             <p>Get a free, no-obligation quote for {service.name.toLowerCase()}.</p>
-            <a href="/contact/" class="btn btn--primary" style="width: 100%; text-align: center;">Get a Quote</a>
+            <a href={`/contact/?service=${encodeURIComponent(service.name)}`} class="btn btn--primary" style="width: 100%; text-align: center;">Get a Quote</a>
             <div class="sidebar-card__divider"></div>
             <div class="sidebar-card__contact">
               <span class="sidebar-card__label">Or call us</span>
@@ -176,6 +181,7 @@ const relatedPosts = blogPosts.filter(post => post.services.includes(service.slu
   <CTABand
     title={`Need ${service.name}?`}
     description="Get in touch for a free, no-obligation quote. We cover Colchester, Mersea Island, Tiptree, Witham, Maldon, Diss, and surrounding areas."
+    primaryHref={`/contact/?service=${encodeURIComponent(service.name)}`}
   />
 </BaseLayout>
 

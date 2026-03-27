@@ -33,23 +33,58 @@ const { compact = false } = Astro.props;
       <input type="text" id="postcode" name="Postcode" class="form__input" placeholder="e.g. CO1 1AB" />
     </div>
   </div>
-  <div class="form__group">
-    <label for="service" class="form__label">Service Needed</label>
-    <select id="service" name="Service Needed" class="form__input form__select">
-      <option value="">Select a service...</option>
-      <option value="Consumer Unit Replacement">Consumer Unit Replacement</option>
-      <option value="EV Charger Installation">EV Charger Installation</option>
-      <option value="Fault Finding">Fault Finding</option>
-      <option value="Lighting Installation">Lighting Installation</option>
-      <option value="Rewire">Rewire</option>
-      <option value="EICR Certificate">EICR Certificate</option>
-      <option value="Smart Home Installation">Smart Home Installation</option>
-      <option value="Ethernet Wiring">Ethernet Wiring</option>
-      <option value="Home WiFi Systems">Home WiFi Systems</option>
-      <option value="CCTV Installation">CCTV Installation</option>
-      <option value="Home Cinema Wiring">Home Cinema Wiring</option>
-      <option value="Other">Other</option>
-    </select>
+  <div class="form__row form__row--2">
+    <div class="form__group">
+      <label for="property-type" class="form__label">Property Type</label>
+      <select id="property-type" name="Property Type" class="form__input form__select">
+        <option value="">Select property type...</option>
+        <option value="House">House</option>
+        <option value="Flat/Apartment">Flat/Apartment</option>
+        <option value="Bungalow">Bungalow</option>
+        <option value="Commercial">Commercial</option>
+        <option value="HMO/Rental">HMO/Rental</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="form__group">
+      <label for="preferred-contact" class="form__label">Preferred Contact Method</label>
+      <select id="preferred-contact" name="Preferred Contact" class="form__input form__select">
+        <option value="">No preference...</option>
+        <option value="Phone">Phone</option>
+        <option value="Email">Email</option>
+        <option value="WhatsApp">WhatsApp</option>
+      </select>
+    </div>
+  </div>
+  <div class="form__row form__row--2">
+    <div class="form__group">
+      <label for="timeline" class="form__label">Timeline</label>
+      <select id="timeline" name="Timeline" class="form__input form__select">
+        <option value="">Select timeline...</option>
+        <option value="As soon as possible">As soon as possible</option>
+        <option value="Within 2 weeks">Within 2 weeks</option>
+        <option value="Within a month">Within a month</option>
+        <option value="Flexible/No rush">Flexible/No rush</option>
+      </select>
+    </div>
+    <div class="form__group">
+      <label for="service" class="form__label">Service Needed</label>
+      <select id="service" name="Service Needed" class="form__input form__select">
+        <option value="">Select a service...</option>
+        <option value="Consumer Unit Replacement">Consumer Unit Replacement</option>
+        <option value="EV Charger Installation">EV Charger Installation</option>
+        <option value="Fault Finding">Fault Finding</option>
+        <option value="Lighting Installation">Lighting Installation</option>
+        <option value="Rewire">Rewire</option>
+        <option value="EICR Certificate">EICR Certificate</option>
+        <option value="Smart Home Installation">Smart Home Installation</option>
+        <option value="Ethernet Wiring">Ethernet Wiring</option>
+        <option value="Home WiFi Systems">Home WiFi Systems</option>
+        <option value="CCTV Installation">CCTV Installation</option>
+        <option value="Home Cinema Wiring">Home Cinema Wiring</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
   </div>
   <div class="form__group">
     <label for="message" class="form__label">Tell Us About Your Project <span class="form__required">*</span></label>
@@ -146,3 +181,28 @@ const { compact = false } = Astro.props;
     }
   }
 </style>
+
+<script>
+  // Pre-select service from URL parameter
+  const params = new URLSearchParams(window.location.search);
+  const serviceParam = params.get('service');
+  if (serviceParam) {
+    const serviceSelect = document.getElementById('service') as HTMLSelectElement | null;
+    if (serviceSelect) {
+      const options = Array.from(serviceSelect.options);
+      const match = options.find(opt => opt.value.toLowerCase() === serviceParam.toLowerCase());
+      if (match) {
+        serviceSelect.value = match.value;
+      }
+    }
+  }
+
+  // GA4 form submission tracking
+  const contactForm = document.getElementById('contact-form');
+  contactForm?.addEventListener('submit', function () {
+    const w = window as any;
+    if (typeof w.gtag === 'function') {
+      w.gtag('event', 'generate_lead', { event_category: 'Contact', event_label: 'Quote Request' });
+    }
+  });
+</script>
