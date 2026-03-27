@@ -27,6 +27,15 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.jpg`;
   <meta name="description" content={description} />
   <link rel="canonical" href={pageUrl} />
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDRHXGZE6R" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TDRHXGZE6R');
+  </script>
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
