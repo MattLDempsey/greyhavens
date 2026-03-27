@@ -32,8 +32,8 @@ const { name, slug, county } = Astro.props;
     text-decoration: none;
     color: inherit;
     padding: 2.5rem 1.5rem;
-    border-top: 3px solid var(--color-gold);
-    background: linear-gradient(145deg, var(--color-steel) 0%, rgba(60, 64, 70, 0.7) 100%);
+    border-top: 2px solid var(--color-gold);
+    background: linear-gradient(145deg, rgba(75, 80, 87, 0.5) 0%, rgba(51, 54, 61, 0.6) 100%);
     transition: all 0.3s ease;
   }
 
@@ -45,13 +45,13 @@ const { name, slug, county } = Astro.props;
     color: var(--color-gold);
     margin-bottom: 1rem;
     opacity: 0.8;
-    filter: drop-shadow(0 0 8px rgba(198, 168, 106, 0.3));
+    filter: drop-shadow(0 0 6px rgba(198, 168, 106, 0.15));
     transition: all 0.3s ease;
   }
 
   .location-card:hover .location-card__icon {
     opacity: 1;
-    filter: drop-shadow(0 0 12px rgba(198, 168, 106, 0.5));
+    filter: drop-shadow(0 0 8px rgba(198, 168, 106, 0.3));
   }
 
   .location-card__name {
