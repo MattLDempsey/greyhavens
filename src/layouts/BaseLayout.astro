@@ -73,6 +73,12 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.jpg`;
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <Header />
+  <div class="launch-banner" id="launch-banner">
+    <div class="launch-banner__inner">
+      <p>Now accepting quote requests. <a href="/contact/">Get in touch for a free, no-obligation quote.</a></p>
+      <button class="launch-banner__close" id="launch-banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </div>
   <main id="main-content">
     <slot />
   </main>
@@ -80,13 +86,19 @@ const ogImg = ogImage || `${siteUrl}/images/og-default.jpg`;
   <MobileCTA />
   <CookieConsent />
   <script is:inline>
-    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'contact', { event_category: 'Phone', event_label: 'Phone Click' });
-        }
-      });
-    });
+    (function() {
+      var banner = document.getElementById('launch-banner');
+      var closeBtn = document.getElementById('launch-banner-close');
+      if (banner && localStorage.getItem('gh-launch-banner-dismissed')) {
+        banner.style.display = 'none';
+      }
+      if (closeBtn && banner) {
+        closeBtn.addEventListener('click', function() {
+          banner.style.display = 'none';
+          localStorage.setItem('gh-launch-banner-dismissed', '1');
+        });
+      }
+    })();
   </script>
 </body>
 </html>

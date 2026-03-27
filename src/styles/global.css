@@ -292,3 +292,54 @@ p:last-child {
   white-space: nowrap;
   border: 0;
 }
+
+/* --- Launch banner --- */
+.launch-banner {
+  background-color: var(--color-charcoal-light, #3a3d44);
+  border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+  padding: 0.5rem 1rem;
+  margin-top: 80px;
+}
+
+.launch-banner__inner {
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.launch-banner__inner p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-silver, #b0b3b8);
+  text-align: center;
+}
+
+.launch-banner__inner a {
+  color: var(--color-gold, #c6a86a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.launch-banner__inner a:hover {
+  opacity: 0.8;
+}
+
+.launch-banner__close {
+  background: none;
+  border: none;
+  color: var(--color-silver, #b0b3b8);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.launch-banner__close:hover {
+  opacity: 1;
+}

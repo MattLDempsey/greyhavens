@@ -71,7 +71,7 @@ const relatedComboPages = comboPages.filter(
     title={page.headline}
     description={page.intro.slice(0, 160) + '...'}
     primaryCta={{ text: 'Request a Quote', href: `/contact/?service=${encodeURIComponent(page.serviceName)}` }}
-    secondaryCta={{ text: 'Call 01206 000 000', href: 'tel:01206000000' }}
+    secondaryCta={{ text: 'Get in Touch', href: '/contact/' }}
   />
 
   <!-- Main Content -->
@@ -136,8 +136,8 @@ const relatedComboPages = comboPages.filter(
             <a href={`/contact/?service=${encodeURIComponent(page.serviceName)}`} class="btn btn--primary" style="width: 100%; text-align: center;">Request a Quote</a>
             <div class="sidebar-card__divider"></div>
             <div class="sidebar-card__contact">
-              <span class="sidebar-card__label">Or call us</span>
-              <a href="tel:01206000000" class="sidebar-card__phone">01206 000 000</a>
+              <span class="sidebar-card__label">Or email us</span>
+              <a href="mailto:hello@thegreyhavens.co.uk" class="sidebar-card__phone">hello@thegreyhavens.co.uk</a>
             </div>
           </div>
 
