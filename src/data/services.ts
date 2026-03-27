@@ -238,7 +238,7 @@ export const services: Service[] = [
   {
     name: 'EICR Certificates',
     slug: 'eicr-certificates',
-    category: 'compliance',
+    category: 'electrical',
     shortDescription: 'Electrical Installation Condition Reports for landlords, homeowners, and property sales.',
     longDescription: 'An Electrical Installation Condition Report (EICR) is a formal inspection of your property\'s fixed electrical installation. It identifies any defects, deterioration, or non-compliance with current safety standards. EICRs are a legal requirement for landlords in England and are recommended for homeowners, particularly when buying, selling, or maintaining older properties.',
     includes: [

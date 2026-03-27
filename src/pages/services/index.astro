@@ -6,7 +6,6 @@ import CTABand from '../../components/CTABand.astro';
 import { getServicesByCategory, serviceCategories } from '../../data/services';
 
 const electrical = getServicesByCategory('electrical');
-const compliance = getServicesByCategory('compliance');
 const smartHome = getServicesByCategory('smart-home');
 ---
 
@@ -38,24 +37,8 @@ const smartHome = getServicesByCategory('smart-home');
     </div>
   </section>
 
-  <!-- Compliance -->
-  <section class="section section--dark" id="compliance">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__subtitle">Compliance</span>
-        <h2>{serviceCategories.compliance.name}</h2>
-        <p class="text-silver">{serviceCategories.compliance.description}</p>
-      </div>
-      <div class="grid grid--3">
-        {compliance.map(s => (
-          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} />
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Smart Home -->
-  <section class="section" id="smart-home">
+  <section class="section section--dark" id="smart-home">
     <div class="container">
       <div class="section__header">
         <span class="section__subtitle">Smart Home</span>

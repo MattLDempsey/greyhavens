@@ -18,7 +18,7 @@ export function getStaticPaths() {
 
 const { location } = Astro.props;
 
-const coreServices = services.filter(s => s.category === 'electrical' || s.category === 'compliance');
+const coreServices = services.filter(s => s.category === 'electrical');
 const smartServices = services.filter(s => s.category === 'smart-home');
 const otherLocations = locations.filter(l => l.slug !== location.slug);
 ---
