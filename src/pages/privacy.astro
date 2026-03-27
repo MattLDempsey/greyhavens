@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy | Grey Havens Electrical & Smart Home"
+  description="How Grey Havens collects, uses, and protects your personal data. Our privacy policy covers your rights under UK GDPR, cookie usage, and contact form data processing."
+>
+  <Hero
+    compact
+    subtitle="Legal"
+    title="Privacy Policy"
+    description="How we handle your data — kept simple and straightforward."
+  />
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="legal-content">
+        <p class="legal-updated">Last updated: 26 March 2026</p>
+
+        <p>Grey Havens ("we", "us", "our") is committed to protecting your privacy. This policy explains what personal data we collect, why we collect it, and what we do with it. We've kept it as clear and jargon-free as possible.</p>
+
+        <h2>What Data We Collect</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>We collect only the information we need to provide our services and respond to your enquiries. This may include:</p>
+        <ul class="legal-list">
+          <li>Your name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Property address (when relevant to a quote or job)</li>
+          <li>Details about your project or enquiry</li>
+          <li>Basic technical data when you browse our website (see Cookies below)</li>
+        </ul>
+
+        <h2>How We Use Your Data</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>We use your personal data to:</p>
+        <ul class="legal-list">
+          <li>Respond to your enquiries and provide quotes</li>
+          <li>Carry out the electrical or smart home work you've asked us to do</li>
+          <li>Send you relevant information about your project</li>
+          <li>Comply with legal and regulatory requirements</li>
+        </ul>
+        <p>We do not sell your data to third parties. We do not send marketing emails unless you have specifically asked us to. It's that simple.</p>
+
+        <h2>Contact Form Data</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>Our contact form submissions are processed by <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">Formsubmit.co</a>, a third-party form handling service. When you submit our contact form, your data passes through their servers before being delivered to us by email.</p>
+        <p>Formsubmit.co does not store your submissions long-term or use your data for marketing. You can review their own privacy practices on their website.</p>
+        <p>We retain contact form data only for as long as needed to respond to your enquiry and, where applicable, to complete the related work.</p>
+
+        <h2>Cookies</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>We keep cookie usage to a minimum. Our website uses only essential cookies that are necessary for the site to function properly. We do not use advertising cookies, tracking pixels, or third-party analytics cookies.</p>
+        <p>Essential cookies may include:</p>
+        <ul class="legal-list">
+          <li>Session cookies to keep the website working as expected</li>
+          <li>Security cookies to protect form submissions</li>
+        </ul>
+        <p>These cookies do not track you across other websites and are not used for marketing purposes.</p>
+
+        <h2>Your Rights Under UK GDPR</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>Under the UK General Data Protection Regulation, you have the right to:</p>
+        <ul class="legal-list">
+          <li><strong>Access</strong> the personal data we hold about you</li>
+          <li><strong>Correct</strong> any inaccurate or incomplete data</li>
+          <li><strong>Delete</strong> your personal data (where there is no legal reason for us to keep it)</li>
+          <li><strong>Object</strong> to the processing of your data</li>
+          <li><strong>Restrict</strong> how we use your data</li>
+          <li><strong>Data portability</strong> — request your data in a portable format</li>
+        </ul>
+        <p>If you want to exercise any of these rights, just get in touch using the details below. We'll respond promptly and without fuss.</p>
+        <p>You also have the right to lodge a complaint with the <a href="https://ico.org.uk/" target="_blank" rel="noopener noreferrer">Information Commissioner's Office (ICO)</a> if you believe your data has been handled improperly.</p>
+
+        <h2>How to Contact Us</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>If you have any questions about this privacy policy or how we handle your data, please contact us:</p>
+        <ul class="legal-list">
+          <li><strong>Business:</strong> Grey Havens</li>
+          <li><strong>Email:</strong> <a href="mailto:hello@thegreyhavens.co.uk">hello@thegreyhavens.co.uk</a></li>
+        </ul>
+        <p>We aim to respond to all privacy-related enquiries within 30 days.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .legal-updated {
+    font-size: 0.875rem;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .legal-content h2 {
+    margin-top: 3rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  .legal-content .gold-line--left {
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-content p {
+    opacity: 0.85;
+  }
+
+  .legal-content a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-content a:hover {
+    color: var(--color-silver-light);
+  }
+
+  .legal-list {
+    margin: 1rem 0 1.5rem;
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-silver);
+    opacity: 0.85;
+  }
+
+  .legal-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .legal-list li strong {
+    color: var(--color-white);
+  }
+</style>

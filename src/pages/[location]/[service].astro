@@ -24,6 +24,11 @@ const blogPosts = [
   { title: 'Do I Need a Consumer Unit Upgrade?', href: '/blog/do-i-need-a-consumer-unit-upgrade/', services: ['consumer-unit-replacement', 'rewires', 'eicr-certificates', 'fault-finding'] },
   { title: 'How Much Does an EICR Cost?', href: '/blog/how-much-does-an-eicr-cost/', services: ['eicr-certificates', 'fault-finding', 'consumer-unit-replacement', 'rewires'] },
   { title: 'Smart Home Wiring for New Builds', href: '/blog/smart-home-wiring-new-builds/', services: ['smart-home-installation', 'ethernet-wiring', 'home-cinema-wiring', 'home-wifi-systems', 'cctv-installation', 'lighting-installation', 'ev-charger-installation'] },
+  { title: 'EV Charger Installation: Home Charging Explained', href: '/blog/ev-charger-installation-home-charging-explained/', services: ['ev-charger-installation', 'consumer-unit-replacement', 'smart-home-installation'] },
+  { title: 'Rewiring a House: Signs, Costs, and What to Expect', href: '/blog/rewiring-a-house-signs-costs-and-what-to-expect/', services: ['rewires', 'consumer-unit-replacement', 'eicr-certificates', 'fault-finding', 'lighting-installation'] },
+  { title: 'What Is Part P and Why Does It Matter?', href: '/blog/what-is-part-p-and-why-does-it-matter/', services: ['eicr-certificates', 'consumer-unit-replacement', 'rewires', 'ev-charger-installation'] },
+  { title: 'Smart Home on a Budget: Where to Start', href: '/blog/smart-home-on-a-budget-where-to-start/', services: ['smart-home-installation', 'home-wifi-systems', 'ethernet-wiring', 'lighting-installation', 'cctv-installation'] },
+  { title: 'Landlord Electrical Safety: Your Legal Obligations', href: '/blog/landlord-electrical-safety-legal-obligations/', services: ['eicr-certificates', 'consumer-unit-replacement', 'fault-finding', 'rewires'] },
 ];
 const relatedPosts = blogPosts.filter(post => post.services.includes(page.serviceSlug));
 const otherLocations = locations.filter(l => l.slug !== page.locationSlug);

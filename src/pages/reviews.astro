@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+
+const reviews = [
+  {
+    name: 'Customer Name',
+    location: 'Colchester, Essex',
+    service: 'Consumer Unit Replacement',
+    text: 'Review coming soon...',
+    stars: 5,
+  },
+  {
+    name: 'Customer Name',
+    location: 'Colchester, Essex',
+    service: 'EV Charger',
+    text: 'Review coming soon...',
+    stars: 5,
+  },
+  {
+    name: 'Customer Name',
+    location: 'Colchester, Essex',
+    service: 'Smart Home',
+    text: 'Review coming soon...',
+    stars: 5,
+  },
+  {
+    name: 'Customer Name',
+    location: 'Colchester, Essex',
+    service: 'Rewire',
+    text: 'Review coming soon...',
+    stars: 5,
+  },
+  {
+    name: 'Customer Name',
+    location: 'Colchester, Essex',
+    service: 'EICR',
+    text: 'Review coming soon...',
+    stars: 5,
+  },
+  {
+    name: 'Customer Name',
+    location: 'Colchester, Essex',
+    service: 'Ethernet Wiring',
+    text: 'Review coming soon...',
+    stars: 5,
+  },
+];
+---
+
+<BaseLayout
+  title="Reviews | Grey Havens — Customer Testimonials"
+  description="Read what our customers say about Grey Havens electrical services. Trusted electricians across Essex and Suffolk."
+>
+  <!-- Hero -->
+  <Hero
+    compact
+    subtitle="Testimonials"
+    title="What Our Customers Say"
+    description="Honest feedback from homeowners across Essex and Suffolk who trust Grey Havens with their electrical work."
+  />
+
+  <!-- Reviews Section -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Coming Soon Notice -->
+      <div class="reviews-notice">
+        <p class="reviews-notice__text">Customer reviews coming soon — we're just getting started.</p>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid">
+        {reviews.map((review) => (
+          <article class="review-card">
+            <div class="review-card__stars" aria-label={`${review.stars} out of 5 stars`}>
+              {Array.from({ length: review.stars }).map(() => (
+                <svg class="review-card__star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <p class="review-card__text">{review.text}</p>
+            <div class="review-card__footer">
+              <div class="review-card__author">
+                <span class="review-card__name">{review.name}</span>
+                <span class="review-card__location">{review.location}</span>
+              </div>
+              <span class="review-card__service">{review.service}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Leave a Review Section -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="leave-review">
+        <span class="section__subtitle">Share Your Experience</span>
+        <h2>Leave a Review</h2>
+        <p class="leave-review__desc">Had work done by Grey Havens? We'd love to hear your feedback. Your reviews help other homeowners make informed decisions.</p>
+        <div class="leave-review__links">
+          <a href="https://www.google.com/search?q=Grey+Havens+Electrical" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="flex-shrink: 0;">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 0 0 1 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Review on Google
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <CTABand
+    title="Ready to Experience the Difference?"
+    description="Join our growing list of satisfied customers. Get in touch for a free, no-obligation quote."
+    secondaryText="View Our Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>
+
+<style>
+  /* --- Coming Soon Notice --- */
+  .reviews-notice {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    padding: 1.25rem 2rem;
+    background: rgba(198, 168, 106, 0.06);
+    border: 1px solid rgba(198, 168, 106, 0.15);
+    border-radius: var(--radius-lg);
+  }
+
+  .reviews-notice__text {
+    font-size: 0.95rem;
+    color: var(--color-silver);
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* --- Reviews Grid --- */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  /* --- Review Card --- */
+  .review-card {
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition);
+  }
+
+  .review-card:hover {
+    border-color: rgba(198, 168, 106, 0.35);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .review-card__stars {
+    display: flex;
+    gap: 0.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .review-card__star {
+    color: var(--color-gold);
+    width: 18px;
+    height: 18px;
+  }
+
+  .review-card__text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-silver);
+    opacity: 0.8;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-card__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(75, 80, 87, 0.3);
+  }
+
+  .review-card__author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .review-card__name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+
+  .review-card__location {
+    font-size: 0.8rem;
+    color: var(--color-silver);
+    opacity: 0.6;
+  }
+
+  .review-card__service {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius);
+    white-space: nowrap;
+  }
+
+  /* --- Leave a Review --- */
+  .leave-review {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .leave-review h2 {
+    margin-bottom: 1rem;
+  }
+
+  .leave-review__desc {
+    color: var(--color-silver);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    line-height: 1.75;
+  }
+
+  .leave-review__links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 640px) {
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .review-card__footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

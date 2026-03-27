@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'Cat5 vs Cat6 vs Cat6a: Which Ethernet Cable Do You Need?';
+const description = 'A comparison of Cat5e, Cat6, and Cat6a ethernet cables — speeds, shielding, costs, and which cable type is best for home and commercial network installations.';
+const publishDate = '2026-02-28';
+const category = 'Smart Home';
+const readingTime = '5 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>28 February 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>If you are planning a network installation — whether for a new build, a renovation, or simply to improve connectivity in your home — one of the first decisions is which type of ethernet cable to use. The differences between Cat5e, Cat6, and Cat6a are not always obvious, and the right choice depends on what you need now and what you might need in the future.</p>
+
+        <p>Here is a straightforward comparison to help you decide.</p>
+
+        <h2>Cat5e — The Baseline</h2>
+
+        <p>Cat5e (Category 5 enhanced) has been the standard for home and office networking for many years. It supports speeds up to 1Gbps at distances up to 100 metres, which is more than adequate for most current broadband connections, file sharing, and streaming.</p>
+
+        <ul>
+          <li><strong>Maximum speed:</strong> 1Gbps</li>
+          <li><strong>Maximum bandwidth:</strong> 100MHz</li>
+          <li><strong>Maximum distance:</strong> 100m</li>
+          <li><strong>Shielding:</strong> typically unshielded (UTP)</li>
+        </ul>
+
+        <p>For many homes today, Cat5e will do the job. It is the most affordable option and is perfectly capable of handling a gigabit connection. However, if you are installing cable into walls and ceilings — where it will stay for decades — it is worth thinking about whether the small extra cost of a higher-rated cable is worthwhile.</p>
+
+        <h2>Cat6 — A Step Up</h2>
+
+        <p>Cat6 offers improved performance over Cat5e, with tighter specifications for crosstalk and system noise. It supports 10Gbps speeds, but only over shorter distances — up to around 55 metres. Beyond that, it falls back to 1Gbps.</p>
+
+        <ul>
+          <li><strong>Maximum speed:</strong> 10Gbps (up to 55m), 1Gbps (up to 100m)</li>
+          <li><strong>Maximum bandwidth:</strong> 250MHz</li>
+          <li><strong>Maximum distance:</strong> 100m (at 1Gbps)</li>
+          <li><strong>Shielding:</strong> available in both UTP and STP variants</li>
+        </ul>
+
+        <p>Cat6 is a solid middle ground. The cable is slightly thicker and stiffer than Cat5e due to the internal spline that separates the twisted pairs, but it is still manageable to install. For shorter runs — such as within a single floor — it gives you 10Gbps headroom without a significant cost increase.</p>
+
+        <h2>Cat6a — The Future-Proof Choice</h2>
+
+        <p>Cat6a (Category 6 augmented) supports 10Gbps over the full 100-metre distance. It has superior shielding, lower crosstalk, and is designed to handle the bandwidth demands of the next generation of networking equipment.</p>
+
+        <ul>
+          <li><strong>Maximum speed:</strong> 10Gbps</li>
+          <li><strong>Maximum bandwidth:</strong> 500MHz</li>
+          <li><strong>Maximum distance:</strong> 100m (at full 10Gbps)</li>
+          <li><strong>Shielding:</strong> typically shielded (F/UTP or S/FTP)</li>
+        </ul>
+
+        <p>Cat6a is what we recommend for new installations. The reason is simple: the cable itself is a small fraction of the total cost of a network installation. The majority of the expense is in the labour — routing cables through walls, floors, and ceilings, drilling, making good, and terminating. If you are going to the trouble and expense of having cable installed, it makes sense to use the best cable available so you do not need to do it again in ten years.</p>
+
+        <h2>Shielded vs Unshielded</h2>
+
+        <p>Unshielded twisted pair (UTP) cable relies on the twisting of its internal pairs to reduce electromagnetic interference. Shielded cable (STP, F/UTP, or S/FTP) adds a foil or braided shield around the pairs or the entire cable for additional protection.</p>
+
+        <p>For most domestic installations, unshielded Cat6 or Cat6a is perfectly adequate. Shielded cable becomes more important in environments with significant electrical interference — for example, running cables alongside power circuits, in commercial buildings with dense cabling, or in properties with heavy electrical plant.</p>
+
+        <p>It is worth noting that shielded cable requires shielded connectors and proper earthing at both ends to be effective. If only the cable is shielded but the terminations are not, the shielding can actually make things worse by acting as an antenna.</p>
+
+        <h2>Cable Runs and Termination</h2>
+
+        <p>Regardless of which cable type you choose, the quality of the installation matters as much as the cable itself. Poor installation practices — sharp bends, excessive pulling tension, running alongside power cables without separation, or badly terminated connections — will undermine the performance of even the best cable.</p>
+
+        <p>A professional <a href="/services/ethernet-wiring/">ethernet wiring installation</a> includes proper cable management, labelled patch panels, correct termination using the T568B standard, and testing of every run with a cable certifier to confirm it meets the relevant performance standard.</p>
+
+        <h2>Why Structured Cabling Matters</h2>
+
+        <p>A structured cabling approach means installing a central patch panel (usually near your router or network switch) with individual cable runs to each room or location where you need connectivity. This is far more reliable and flexible than daisy-chaining cables or relying on WiFi alone.</p>
+
+        <p>With structured cabling in place, you can support wired devices throughout the property — <a href="/services/home-wifi-systems/">WiFi access points</a>, smart home controllers, <a href="/services/home-cinema-wiring/">home cinema equipment</a>, security cameras, and networked storage — all with the stability and speed that only a wired connection provides.</p>
+
+        <p>If you are building or renovating, this is by far the best time to install structured cabling, as our guide to <a href="/blog/smart-home-wiring-new-builds/">smart home wiring for new builds</a> explains in detail.</p>
+
+        <h2>Our Recommendation</h2>
+
+        <p>For any new cable installation, we recommend Cat6a as standard. The price difference per metre is marginal, and the performance headroom it provides will keep your network relevant for the foreseeable future. The labour cost — which is the bulk of any cabling job — is the same regardless of cable type, so future-proofing at the cable stage is genuinely good value.</p>
+
+        <p>If budget is a firm constraint and your runs are relatively short, Cat6 is a reasonable compromise. We would generally advise against installing Cat5e in any new project at this point — it is already a generation behind, and the savings are minimal.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/ethernet-wiring/">Ethernet Wiring</a></li>
+            <li><a href="/services/home-wifi-systems/">Home WiFi Systems</a></li>
+            <li><a href="/services/home-cinema-wiring/">Home Cinema Wiring</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Planning a Network Installation?"
+    description="We install structured ethernet cabling for homes and businesses across Essex and Suffolk. Free, no-obligation quotes for all projects."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="Ethernet Wiring"
+    secondaryHref="/services/ethernet-wiring/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>

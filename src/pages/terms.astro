@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout
+  title="Terms & Conditions | Grey Havens Electrical & Smart Home"
+  description="Terms and conditions for using the Grey Havens website and services. Covers quotations, pricing, liability, intellectual property, and governing law."
+>
+  <Hero
+    compact
+    subtitle="Legal"
+    title="Terms & Conditions"
+    description="The terms that apply when you use our website and services."
+  />
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="legal-content">
+        <p class="legal-updated">Last updated: 26 March 2026</p>
+
+        <p>These terms and conditions govern your use of the Grey Havens website and the services we provide. By using this website, you agree to these terms. Please read them — they're straightforward.</p>
+
+        <h2>Use of This Website</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>This website is provided for general information about Grey Havens and the electrical and smart home services we offer. While we make every effort to keep the content accurate and up to date, we do not guarantee that everything on the site is complete, current, or free of errors.</p>
+        <p>You may use this website for lawful purposes only. You must not:</p>
+        <ul class="legal-list">
+          <li>Use the site in any way that is unlawful or fraudulent</li>
+          <li>Attempt to gain unauthorised access to any part of the site or its infrastructure</li>
+          <li>Introduce viruses, malware, or any other harmful material</li>
+          <li>Scrape, copy, or reproduce the site content without our permission</li>
+        </ul>
+
+        <h2>Quotations and Pricing</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>Any quotation we provide is an estimate based on the information available to us at the time. Quotes are not a fixed contract price unless explicitly stated in writing.</p>
+        <p>The final price for any work may vary from the initial quote after a site survey or once work has begun, particularly if:</p>
+        <ul class="legal-list">
+          <li>The scope of work changes at your request</li>
+          <li>Unforeseen issues are discovered (such as hidden wiring faults, asbestos, or structural complications)</li>
+          <li>Additional work is required to meet current regulations</li>
+          <li>Access to the work area is more difficult than initially assessed</li>
+        </ul>
+        <p>We will always discuss any changes to the quoted price with you before proceeding with additional work. There are no surprises — if the cost changes, we'll explain why and agree the way forward with you first.</p>
+        <p>Quotations are valid for 30 days from the date of issue unless otherwise stated.</p>
+
+        <h2>Intellectual Property</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>All content on this website — including text, images, designs, logos, and branding — is owned by Grey Havens or used with permission. You may not reproduce, distribute, or use any of this content without our prior written consent.</p>
+        <p>The Grey Havens name and logo are our intellectual property and may not be used without authorisation.</p>
+
+        <h2>Liability Limitations</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>We take pride in our work and stand behind the quality of our services. However, there are some things we need to be clear about:</p>
+        <ul class="legal-list">
+          <li>We are not liable for any indirect or consequential losses arising from the use of this website</li>
+          <li>The information on this website does not constitute professional electrical advice — it is for general guidance only</li>
+          <li>We are not responsible for the content or practices of any third-party websites we link to</li>
+          <li>Our liability for any work carried out is limited to the value of the contract for that work</li>
+        </ul>
+        <p>Nothing in these terms excludes or limits our liability for death or personal injury caused by our negligence, fraud, or any other liability that cannot be excluded by law.</p>
+
+        <h2>Governing Law</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>These terms and conditions are governed by and construed in accordance with the laws of England and Wales. Any disputes arising from these terms or your use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+        <h2>Changes to These Terms</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>We may update these terms from time to time. Any changes will be posted on this page with an updated revision date. We recommend checking this page occasionally to stay informed.</p>
+        <p>Continued use of the website after changes have been posted constitutes your acceptance of the revised terms.</p>
+
+        <h2>Contact Us</h2>
+        <hr class="gold-line gold-line--left" />
+        <p>If you have any questions about these terms, please contact us:</p>
+        <ul class="legal-list">
+          <li><strong>Business:</strong> Grey Havens</li>
+          <li><strong>Email:</strong> <a href="mailto:hello@thegreyhavens.co.uk">hello@thegreyhavens.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .legal-updated {
+    font-size: 0.875rem;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .legal-content h2 {
+    margin-top: 3rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  .legal-content .gold-line--left {
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-content p {
+    opacity: 0.85;
+  }
+
+  .legal-content a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-content a:hover {
+    color: var(--color-silver-light);
+  }
+
+  .legal-list {
+    margin: 1rem 0 1.5rem;
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-silver);
+    opacity: 0.85;
+  }
+
+  .legal-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .legal-list li strong {
+    color: var(--color-white);
+  }
+</style>

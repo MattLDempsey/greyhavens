@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const title = 'How to Improve WiFi in an Old House';
+const description = 'Why older homes struggle with WiFi and the best solutions — from repositioning your router to hardwired access points, mesh systems, and professional WiFi surveys.';
+const publishDate = '2026-02-20';
+const category = 'Smart Home';
+const readingTime = '6 min read';
+---
+
+<BaseLayout
+  title={`${title} | Grey Havens Blog`}
+  description={description}
+>
+  <Hero
+    compact
+    subtitle="Blog"
+    title={title}
+  />
+
+  <article class="article-wrapper">
+    <div class="container container--narrow">
+      <div class="article-meta">
+        <span class="article-meta__category">{category}</span>
+        <time datetime={publishDate}>20 February 2026</time>
+        <span class="article-meta__divider">&middot;</span>
+        <span>{readingTime}</span>
+      </div>
+
+      <div class="article-body">
+        <p>If you live in an older property and your WiFi is patchy, slow, or drops out in certain rooms, you are not alone. Period homes, Victorian terraces, Edwardian semis, and rural farmhouses are notoriously difficult for wireless signals — and the reasons are built into the walls themselves.</p>
+
+        <p>Here is why older homes struggle with WiFi, and the solutions that actually work — ranked from simplest to most effective.</p>
+
+        <h2>Why Old Houses Are WiFi Nightmares</h2>
+
+        <p>Modern homes are built with lightweight plasterboard on timber stud walls, which WiFi signals pass through relatively easily. Older homes are a different story entirely:</p>
+
+        <ul>
+          <li><strong>Thick solid walls</strong> — many pre-war properties have solid brick or stone walls that are 225mm or more thick. WiFi signals lose significant strength passing through dense masonry</li>
+          <li><strong>Lath and plaster</strong> — traditional lath and plaster walls and ceilings contain a metal mesh (expanded metal lathing) or are backed with a foil vapour barrier, both of which block or reflect wireless signals</li>
+          <li><strong>Multiple floors</strong> — tall, narrow properties with three or four floors spread the required coverage area vertically, which is harder for a single router to handle</li>
+          <li><strong>Extensions and additions</strong> — many older homes have been extended over the years, creating awkward layouts with signal dead spots where the original structure meets the addition</li>
+          <li><strong>Chimney breasts and alcoves</strong> — solid masonry chimney stacks running through the centre of the house act as effective signal blockers</li>
+        </ul>
+
+        <p>The result is that a single router — even a good one — simply cannot provide reliable coverage throughout the property.</p>
+
+        <h2>Solution 1: Reposition Your Router (Free)</h2>
+
+        <p>Before spending any money, check where your router is positioned. If it is tucked away in a corner, inside a cupboard, on the floor, or at one end of the house, moving it to a more central and elevated position can make a noticeable difference. WiFi signals radiate outwards in all directions, so the centre of your home is the ideal location.</p>
+
+        <p>That said, in an older property with thick walls, repositioning alone is unlikely to solve the problem entirely. It is a good starting point, but it has clear limits.</p>
+
+        <h2>Solution 2: WiFi Extenders (Cheap, But Limited)</h2>
+
+        <p>WiFi range extenders — sometimes called boosters or repeaters — are small plug-in devices that receive your existing WiFi signal and rebroadcast it. They are inexpensive and easy to set up, which makes them appealing.</p>
+
+        <p>However, they have a fundamental flaw: they halve the available bandwidth, because the extender uses the same radio to receive and retransmit the signal. You end up with more coverage but significantly less speed. They also create a separate network that your devices do not always switch to and from smoothly, leading to drops and reconnections as you move around the house.</p>
+
+        <p>For a single problem room, an extender might be adequate. For whole-house coverage in a challenging property, they are not the answer.</p>
+
+        <h2>Solution 3: Mesh WiFi Systems (Better)</h2>
+
+        <p>Mesh systems — such as those from Ubiquiti, TP-Link Deco, or Google Nest — use multiple units placed around your home that work together as a single network. Your devices roam seamlessly between units without dropping the connection, and the system manages itself to optimise performance.</p>
+
+        <p>Mesh is a significant step up from extenders. The units communicate with each other on a dedicated backhaul channel (in higher-end systems), which avoids the bandwidth-halving problem. For many homes, a three-unit mesh system provides good coverage.</p>
+
+        <p>The limitation is that the mesh units still communicate wirelessly with each other, and in a property with thick walls, even the backhaul link between units can suffer. If the mesh node in your bedroom cannot get a strong signal from the node downstairs, the performance at that point will be poor.</p>
+
+        <h2>Solution 4: Hardwired Access Points (Best)</h2>
+
+        <p>The most effective solution — and the one we recommend for older properties — is to install ethernet-connected WiFi access points throughout the house. Each access point is wired back to your router or network switch via an <a href="/services/ethernet-wiring/">ethernet cable</a>, which means it has a full-speed, zero-latency connection to the internet. The wireless signal only has to travel the short distance from the access point to your device, rather than fighting its way through multiple walls to reach the router.</p>
+
+        <p>Ceiling-mounted access points are particularly effective. Positioned centrally on each floor, they broadcast downwards and outwards with excellent coverage. A typical three-bedroom house might need just two or three access points to achieve reliable, fast WiFi in every room.</p>
+
+        <p>This is the approach used in hotels, offices, and any building where reliable WiFi coverage is essential — and it works just as well in a residential setting. The result is consistent, fast WiFi everywhere in the property, with seamless roaming as you move between floors and rooms.</p>
+
+        <p>For more on the cabling side, see our guide to <a href="/blog/cat5-vs-cat6-vs-cat6a-ethernet-cable-guide/">choosing the right ethernet cable</a>.</p>
+
+        <h2>What About PowerLine Adapters?</h2>
+
+        <p>PowerLine adapters use your home's electrical wiring to carry a network signal between rooms. You plug one adapter in near your router and another in the room where you need connectivity. In theory, it is a neat solution that avoids running new cables.</p>
+
+        <p>In practice, results are mixed. Performance depends heavily on the age and condition of your electrical wiring, whether the two sockets are on the same electrical circuit, and how much electrical noise is present on the ring. In some homes they work well enough; in others they are unreliable and slow. Older properties with dated wiring tend to produce worse results.</p>
+
+        <p>PowerLine can be worth trying as a low-cost experiment, but it is not something we would recommend as a long-term solution for a property where connectivity matters.</p>
+
+        <h2>What a Professional WiFi Survey Involves</h2>
+
+        <p>If you are serious about solving your WiFi problems properly, a professional <a href="/services/home-wifi-systems/">WiFi survey</a> is the best starting point. This involves:</p>
+
+        <ul>
+          <li>Walking through your property with survey equipment to map signal strength, interference, and dead spots</li>
+          <li>Assessing the construction — wall types, floor materials, and layout — to understand what is blocking the signal</li>
+          <li>Identifying the optimal number and placement of access points</li>
+          <li>Planning cable routes from each access point location back to a central network point</li>
+          <li>Recommending the right equipment for your property and usage requirements</li>
+        </ul>
+
+        <p>The survey ensures that the installation is designed around your specific property, rather than guesswork. Every old house is different, and what works in one may not work in another.</p>
+
+        <h2>Getting It Right First Time</h2>
+
+        <p>Poor WiFi is one of the most common frustrations in older homes, and many people spend money on solutions that do not really solve the problem — a better router, then an extender, then a mesh system — before eventually arriving at the solution that works. If your property has thick walls and multiple floors, hardwired access points are almost certainly the answer, and starting there saves both time and money.</p>
+
+        <p>Combine it with a <a href="/services/smart-home-installation/">smart home installation</a> and you have a property that is properly connected from the ground up.</p>
+
+        <div class="article-services">
+          <h3>Related Services</h3>
+          <ul>
+            <li><a href="/services/home-wifi-systems/">Home WiFi Systems</a></li>
+            <li><a href="/services/ethernet-wiring/">Ethernet Wiring</a></li>
+            <li><a href="/services/smart-home-installation/">Smart Home Installation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand
+    title="Struggling with WiFi?"
+    description="We design and install professional WiFi systems for homes across Essex and Suffolk — including hardwired access points, ethernet backhaul, and full network setup."
+    primaryText="Request a Quote"
+    primaryHref="/contact/"
+    secondaryText="Home WiFi Systems"
+    secondaryHref="/services/home-wifi-systems/"
+  />
+</BaseLayout>
+
+<style>
+  .article-wrapper {
+    padding: 4rem 0;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(75, 80, 87, 0.3);
+    font-size: 0.9rem;
+    color: var(--color-steel-light);
+  }
+
+  .article-meta__category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    background: rgba(198, 168, 106, 0.1);
+    border: 1px solid rgba(198, 168, 106, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .article-meta__divider {
+    color: var(--color-steel);
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  }
+
+  .article-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .article-body ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-silver);
+  }
+
+  .article-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-body a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(198, 168, 106, 0.3);
+    transition: text-decoration-color var(--transition);
+  }
+
+  .article-body a:hover {
+    text-decoration-color: var(--color-gold);
+    color: var(--color-silver-light);
+  }
+
+  .article-body strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .article-services {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--color-charcoal-light);
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius-lg);
+  }
+
+  .article-services h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+  }
+
+  .article-services ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .article-services li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
+  .article-services a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-services a:hover {
+    color: var(--color-silver-light);
+  }
+
+  @media (max-width: 640px) {
+    .article-wrapper {
+      padding: 2.5rem 0;
+    }
+  }
+</style>
