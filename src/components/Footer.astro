@@ -56,9 +56,10 @@ const year = new Date().getFullYear();
         <div class="footer__col">
           <h4 class="footer__heading">Areas We Cover</h4>
           <ul class="footer__links">
-            {locations.map(location => (
+            {locations.filter(l => ['colchester', 'thetford', 'bury-st-edmunds', 'braintree', 'diss', 'maldon'].includes(l.slug)).map(location => (
               <li><a href={`/locations/${location.slug}/`}>{location.name}</a></li>
             ))}
+            <li><a href="/locations/" style="color: var(--color-gold);">View all areas →</a></li>
           </ul>
         </div>
 
