@@ -8,6 +8,7 @@ import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 import { services, getRelatedServices } from '../../data/services';
 import { locations } from '../../data/locations';
+import { comboPages } from '../../data/combo-pages';
 
 export function getStaticPaths() {
   return services.map(service => ({
@@ -40,6 +41,13 @@ const blogPosts = [
   { title: 'Power Surge Protection for Your Home', href: '/blog/power-surge-protection-for-your-home/', services: ['consumer-unit-replacement', 'smart-home-installation', 'fault-finding'] },
 ];
 const relatedPosts = blogPosts.filter(post => post.services.includes(service.slug));
+
+const comboSlugs = new Set(
+  comboPages.filter(cp => cp.serviceSlug === service.slug).map(cp => cp.locationSlug)
+);
+function locationHref(locSlug: string) {
+  return comboSlugs.has(locSlug) ? `/${locSlug}/${service.slug}/` : `/locations/${locSlug}/`;
+}
 ---
 
 <BaseLayout title={service.seoTitle} description={service.seoDescription}>
@@ -140,7 +148,7 @@ const relatedPosts = blogPosts.filter(post => post.services.includes(service.slu
             <h3>Areas Covered</h3>
             <div class="sidebar-areas">
               {locations.map(loc => (
-                <a href={`/locations/${loc.slug}/`} class="sidebar-area-tag">{loc.name}</a>
+                <a href={locationHref(loc.slug)} class="sidebar-area-tag">{loc.name}</a>
               ))}
             </div>
           </div>

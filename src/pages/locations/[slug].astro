@@ -8,6 +8,7 @@ import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 import { locations } from '../../data/locations';
 import { services } from '../../data/services';
+import { comboPages } from '../../data/combo-pages';
 
 export function getStaticPaths() {
   return locations.map(location => ({
@@ -21,6 +22,13 @@ const { location } = Astro.props;
 const coreServices = services.filter(s => s.category === 'electrical');
 const smartServices = services.filter(s => s.category === 'smart-home');
 const otherLocations = locations.filter(l => l.slug !== location.slug);
+
+const comboSlugs = new Set(
+  comboPages.filter(cp => cp.locationSlug === location.slug).map(cp => cp.serviceSlug)
+);
+function serviceHref(serviceSlug: string) {
+  return comboSlugs.has(serviceSlug) ? `/${location.slug}/${serviceSlug}/` : `/services/${serviceSlug}/`;
+}
 ---
 
 <BaseLayout title={location.seoTitle} description={location.seoDescription}>
@@ -73,14 +81,14 @@ const otherLocations = locations.filter(l => l.slug !== location.slug);
       <h3 class="services-subhead">Electrical & Compliance</h3>
       <div class="grid grid--3 mb-2">
         {coreServices.map(s => (
-          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} />
+          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} href={serviceHref(s.slug)} />
         ))}
       </div>
 
       <h3 class="services-subhead mt-2">Smart Home & Technology</h3>
       <div class="grid grid--3">
         {smartServices.map(s => (
-          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} />
+          <ServiceCard name={s.name} slug={s.slug} description={s.shortDescription} href={serviceHref(s.slug)} />
         ))}
       </div>
     </div>

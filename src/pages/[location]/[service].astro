@@ -45,6 +45,9 @@ const otherLocations = locations.filter(l => l.slug !== page.locationSlug);
 const relatedComboPages = comboPages.filter(
   p => p.locationSlug === page.locationSlug && p.serviceSlug !== page.serviceSlug
 );
+const otherLocationCombos = new Set(
+  comboPages.filter(p => p.serviceSlug === page.serviceSlug && p.locationSlug !== page.locationSlug).map(p => p.locationSlug)
+);
 ---
 
 <BaseLayout title={page.seoTitle} description={page.seoDescription}>
@@ -178,7 +181,7 @@ const relatedComboPages = comboPages.filter(
             <h3>Other Areas</h3>
             <div class="sidebar-areas">
               {otherLocations.map(loc => (
-                <a href={`/locations/${loc.slug}/`} class="sidebar-area-tag">{loc.name}</a>
+                <a href={otherLocationCombos.has(loc.slug) ? `/${loc.slug}/${page.serviceSlug}/` : `/locations/${loc.slug}/`} class="sidebar-area-tag">{loc.name}</a>
               ))}
             </div>
           </div>

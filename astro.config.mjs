@@ -4,5 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://thegreyhavens.co.uk',
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.includes('/gallery/') && !page.includes('/reviews/')
+  })],
 });

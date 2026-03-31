@@ -4,12 +4,14 @@ interface Props {
   slug: string;
   description: string;
   icon?: string;
+  href?: string;
 }
 
-const { name, slug, description } = Astro.props;
+const { name, slug, description, href } = Astro.props;
+const linkUrl = href || `/services/${slug}/`;
 ---
 
-<a href={`/services/${slug}/`} class="service-card card">
+<a href={linkUrl} class="service-card card">
   <div class="service-card__icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
