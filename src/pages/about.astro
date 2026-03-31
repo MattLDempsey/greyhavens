@@ -98,27 +98,27 @@ import { locations } from '../data/locations';
       <div class="area-counties">
         <div class="area-county">
           <h3 class="area-county__heading">Essex</h3>
-          <div class="area-county__tags">
+          <ul class="area-county__list">
             {locations.filter(l => l.county === 'Essex').map(loc => (
-              <a href={`/locations/${loc.slug}/`} class="area-tag">{loc.name}</a>
+              <li><a href={`/locations/${loc.slug}/`}>{loc.name}</a></li>
             ))}
-          </div>
+          </ul>
         </div>
         <div class="area-county">
           <h3 class="area-county__heading">Suffolk</h3>
-          <div class="area-county__tags">
+          <ul class="area-county__list">
             {locations.filter(l => l.county === 'Suffolk').map(loc => (
-              <a href={`/locations/${loc.slug}/`} class="area-tag">{loc.name}</a>
+              <li><a href={`/locations/${loc.slug}/`}>{loc.name}</a></li>
             ))}
-          </div>
+          </ul>
         </div>
         <div class="area-county">
           <h3 class="area-county__heading">Norfolk</h3>
-          <div class="area-county__tags">
+          <ul class="area-county__list">
             {locations.filter(l => l.county === 'Norfolk').map(loc => (
-              <a href={`/locations/${loc.slug}/`} class="area-tag">{loc.name}</a>
+              <li><a href={`/locations/${loc.slug}/`}>{loc.name}</a></li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
       <div class="area-more">
@@ -211,7 +211,9 @@ import { locations } from '../data/locations';
   .area-counties {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .area-county__heading {
@@ -225,32 +227,32 @@ import { locations } from '../data/locations';
     border-bottom: 1px solid rgba(198, 168, 106, 0.2);
   }
 
-  .area-county__tags {
+  .area-county__list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.4rem;
   }
 
-  .area-tag {
-    display: inline-block;
-    padding: 0.4rem 0.9rem;
-    background-color: var(--color-charcoal);
-    border: 1px solid rgba(75, 80, 87, 0.4);
-    border-radius: var(--radius);
-    font-size: 0.8rem;
-    color: var(--color-silver-light);
+  .area-county__list li {
+    list-style: none;
+  }
+
+  .area-county__list a {
+    font-size: 0.85rem;
+    color: var(--color-silver);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
+    opacity: 0.8;
   }
 
-  .area-tag:hover {
-    border-color: var(--color-gold);
+  .area-county__list a:hover {
     color: var(--color-gold);
+    opacity: 1;
   }
 
   .area-more {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
 
   @media (max-width: 640px) {
