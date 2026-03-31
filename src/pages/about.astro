@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CTABand from '../components/CTABand.astro';
-import { locations } from '../data/locations';
+
 ---
 
 <BaseLayout
@@ -90,38 +90,12 @@ import { locations } from '../data/locations';
   <!-- Service Area -->
   <section class="section section--charcoal-light">
     <div class="container">
-      <div class="section__header">
+      <div class="area-statement">
         <span class="section__subtitle">Where We Work</span>
         <h2>Our Service Area</h2>
-        <p class="text-silver">We cover a corridor across Essex, Suffolk, and Norfolk, serving these key areas and their surrounding villages and communities.</p>
-      </div>
-      <div class="area-counties">
-        <div class="area-county">
-          <h3 class="area-county__heading">Essex</h3>
-          <div class="area-county__tags">
-            {locations.filter(l => l.county === 'Essex').map(loc => (
-              <a href={`/locations/${loc.slug}/`} class="area-tag">{loc.name}</a>
-            ))}
-          </div>
-        </div>
-        <div class="area-county">
-          <h3 class="area-county__heading">Suffolk</h3>
-          <div class="area-county__tags">
-            {locations.filter(l => l.county === 'Suffolk').map(loc => (
-              <a href={`/locations/${loc.slug}/`} class="area-tag">{loc.name}</a>
-            ))}
-          </div>
-        </div>
-        <div class="area-county">
-          <h3 class="area-county__heading">Norfolk</h3>
-          <div class="area-county__tags">
-            {locations.filter(l => l.county === 'Norfolk').map(loc => (
-              <a href={`/locations/${loc.slug}/`} class="area-tag">{loc.name}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div class="area-more">
+        <hr class="gold-line" />
+        <p>We serve homes and businesses across <strong>Essex</strong>, <strong>Suffolk</strong>, and <strong>Norfolk</strong> — covering Colchester, Braintree, Maldon, Bury St Edmunds, Thetford, Diss, and over 20 surrounding towns and villages.</p>
+        <p>Whether you're in a coastal cottage on Mersea Island, a Victorian terrace in Colchester, or a new-build in Bury St Edmunds, we're local enough to understand the area and close enough to be there when you need us.</p>
         <a href="/locations/" class="btn btn--secondary">View All Locations</a>
       </div>
     </div>
@@ -208,49 +182,27 @@ import { locations } from '../data/locations';
     background-color: var(--color-gold);
   }
 
-  .area-counties {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 800px;
+  .area-statement {
+    max-width: 640px;
     margin: 0 auto;
-  }
-
-  .area-county__heading {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-  }
-
-  .area-county__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .area-tag {
-    display: inline-block;
-    padding: 0.4rem 0.9rem;
-    background-color: var(--color-charcoal);
-    border: 1px solid rgba(75, 80, 87, 0.4);
-    border-radius: var(--radius);
-    font-size: 0.8rem;
-    color: var(--color-silver-light);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .area-tag:hover {
-    border-color: var(--color-gold);
-    color: var(--color-gold);
-  }
-
-  .area-more {
     text-align: center;
-    margin-top: 2rem;
+  }
+
+  .area-statement p {
+    font-size: 1.05rem;
+    color: var(--color-silver);
+    opacity: 0.85;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .area-statement strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .area-statement .btn {
+    margin-top: 1rem;
   }
 
   @media (max-width: 768px) {
