@@ -95,12 +95,15 @@ const norfolk = locations.filter(l => l.county === 'Norfolk');
   }
 
   .locations-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.25rem;
   }
 
   .location-wrapper {
+    flex: 0 1 calc(33.333% - 1rem);
+    min-width: 280px;
     transition: opacity 0.3s ease;
   }
 
@@ -109,14 +112,14 @@ const norfolk = locations.filter(l => l.county === 'Norfolk');
   }
 
   @media (max-width: 768px) {
-    .locations-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .location-wrapper {
+      flex: 0 1 calc(50% - 1rem);
     }
   }
 
   @media (max-width: 480px) {
-    .locations-grid {
-      grid-template-columns: 1fr;
+    .location-wrapper {
+      flex: 0 1 100%;
     }
     .filter-tab {
       padding: 0.5rem 1rem;
