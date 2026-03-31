@@ -106,16 +106,31 @@ const smartHomeServices = getServicesByCategory('smart-home');
       <div class="section__header">
         <span class="section__subtitle">Service Area</span>
         <h2>Areas We Cover</h2>
-        <p class="text-silver">We provide electrical and smart home services across Essex and Suffolk, covering these key areas and surrounding villages.</p>
+        <p class="text-silver">We provide electrical and smart home services across Essex, Suffolk, and Norfolk, covering these key areas and surrounding villages.</p>
       </div>
       <div class="areas-locations">
-        {locations.map(location => (
+        {locations.filter(l => ['colchester', 'thetford', 'bury-st-edmunds', 'braintree', 'diss'].includes(l.slug)).map(location => (
           <LocationCard
             name={location.name}
             slug={location.slug}
             county={location.county}
           />
         ))}
+        <a href="/locations/" class="location-card card location-card--more">
+          <div class="location-card__icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="location-card__name">More Areas</h3>
+          <span class="location-card__county">26 LOCATIONS</span>
+          <span class="location-card__link">
+            View all
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </a>
       </div>
     </div>
   </section>

@@ -4,29 +4,42 @@ import Hero from '../../components/Hero.astro';
 import LocationCard from '../../components/LocationCard.astro';
 import CTABand from '../../components/CTABand.astro';
 import { locations } from '../../data/locations';
+
+const essex = locations.filter(l => l.county === 'Essex');
+const suffolk = locations.filter(l => l.county === 'Suffolk');
+const norfolk = locations.filter(l => l.county === 'Norfolk');
 ---
 
 <BaseLayout
   title="Areas We Cover | Grey Havens Electrical & Smart Home"
-  description="Grey Havens provides electrical and smart home services across Essex and Suffolk. Covering Colchester, Mersea Island, Tiptree, Witham, Maldon, Diss, and surrounding areas."
+  description="Grey Havens provides electrical and smart home services across Essex, Suffolk, and Norfolk. Covering 26 locations including Colchester, Thetford, Bury St Edmunds, Braintree, Diss, and surrounding areas."
 >
   <Hero
     compact
     subtitle="Service Areas"
     title="Areas We Cover"
-    description="We provide premium electrical and smart home services across a corridor of Essex and Suffolk, covering these key areas and their surrounding communities."
+    description="We provide premium electrical and smart home services across Essex, Suffolk, and Norfolk, covering these key areas and their surrounding communities."
     primaryCta={{ text: 'Request a Quote', href: '/contact/' }}
   />
 
   <section class="section">
     <div class="container">
-      <div class="grid grid--3">
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-tab filter-tab--active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="essex">Essex ({essex.length})</button>
+        <button class="filter-tab" data-filter="suffolk">Suffolk ({suffolk.length})</button>
+        <button class="filter-tab" data-filter="norfolk">Norfolk ({norfolk.length})</button>
+      </div>
+
+      <div class="locations-grid" id="locations-grid">
         {locations.map(location => (
-          <LocationCard
-            name={location.name}
-            slug={location.slug}
-            county={location.county}
-          />
+          <div class="location-wrapper" data-county={location.county.toLowerCase()}>
+            <LocationCard
+              name={location.name}
+              slug={location.slug}
+              county={location.county}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -43,3 +56,94 @@ import { locations } from '../../data/locations';
 
   <CTABand />
 </BaseLayout>
+
+<style>
+  .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    padding: 0.6rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-silver);
+    background: transparent;
+    border: 1px solid rgba(75, 80, 87, 0.4);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-tab:hover {
+    border-color: var(--color-gold);
+    color: var(--color-white);
+  }
+
+  .filter-tab--active {
+    background-color: var(--color-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+  }
+
+  .filter-tab--active:hover {
+    color: var(--color-charcoal);
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .location-wrapper {
+    transition: opacity 0.3s ease;
+  }
+
+  .location-wrapper.hidden {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .locations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .locations-grid {
+      grid-template-columns: 1fr;
+    }
+    .filter-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll('.filter-tab');
+  const wrappers = document.querySelectorAll('.location-wrapper');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = (tab as HTMLElement).dataset.filter;
+
+      tabs.forEach(t => t.classList.remove('filter-tab--active'));
+      tab.classList.add('filter-tab--active');
+
+      wrappers.forEach(wrapper => {
+        const county = (wrapper as HTMLElement).dataset.county;
+        if (filter === 'all' || county === filter) {
+          wrapper.classList.remove('hidden');
+        } else {
+          wrapper.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
