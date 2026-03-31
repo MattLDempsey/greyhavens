@@ -45,6 +45,7 @@ const relatedPosts = blogPosts.filter(post => post.services.includes(service.slu
 const comboSlugs = new Set(
   comboPages.filter(cp => cp.serviceSlug === service.slug).map(cp => cp.locationSlug)
 );
+const featuredLocations = locations.filter(loc => comboSlugs.has(loc.slug)).slice(0, 8);
 function locationHref(locSlug: string) {
   return comboSlugs.has(locSlug) ? `/${locSlug}/${service.slug}/` : `/locations/${locSlug}/`;
 }
@@ -129,6 +130,28 @@ function locationHref(locSlug: string) {
               ))}
             </ul>
           </div>
+
+          <!-- Available in Your Area -->
+          {featuredLocations.length > 0 && (
+            <div class="service-block">
+              <h2>Available in Your Area</h2>
+              <hr class="gold-line gold-line--left" />
+              <p class="service-areas-intro">We offer {service.name.toLowerCase()} across Essex, Suffolk, and Norfolk. Select your area for local details.</p>
+              <div class="service-areas-grid">
+                {featuredLocations.map(loc => (
+                  <a href={`/${loc.slug}/${service.slug}/`} class="service-area-card">
+                    <span class="service-area-card__name">{loc.name}</span>
+                    <span class="service-area-card__arrow">&rarr;</span>
+                  </a>
+                ))}
+              </div>
+              {comboSlugs.size > 8 && (
+                <div class="service-areas-more">
+                  <a href="/locations/">View all {comboSlugs.size} locations &rarr;</a>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <!-- Sidebar -->
@@ -334,6 +357,69 @@ function locationHref(locSlug: string) {
     color: var(--color-gold);
   }
 
+  .service-areas-intro {
+    font-size: 0.95rem;
+    color: var(--color-silver);
+    line-height: 1.7;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .service-area-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.25rem;
+    background-color: var(--color-charcoal);
+    border: 1px solid rgba(75, 80, 87, 0.3);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .service-area-card:hover {
+    border-color: var(--color-gold);
+  }
+
+  .service-area-card__name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-silver-light);
+    transition: color 0.3s;
+  }
+
+  .service-area-card:hover .service-area-card__name {
+    color: var(--color-gold);
+  }
+
+  .service-area-card__arrow {
+    font-size: 0.85rem;
+    color: var(--color-steel-light);
+    transition: color 0.3s;
+  }
+
+  .service-area-card:hover .service-area-card__arrow {
+    color: var(--color-gold);
+  }
+
+  .service-areas-more {
+    margin-top: 1rem;
+    text-align: right;
+  }
+
+  .service-areas-more a {
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
   @media (max-width: 900px) {
     .service-layout {
       grid-template-columns: 1fr;
@@ -341,6 +427,9 @@ function locationHref(locSlug: string) {
     }
     .service-sidebar {
       position: static;
+    }
+    .service-areas-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
